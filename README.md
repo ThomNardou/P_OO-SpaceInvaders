@@ -20,7 +20,7 @@ Space Invader in C# is a modern reinterpretation of the famous classic arcade ga
 4. Use the arrow keys to move your spaceship and the spacebar to shoot the invaders.
 5. Survive as long as you can and get the highest score possible.
 
-##Important!
+## Important!
 The project is still in progress, but you already have the menu, but you can make your own modifications.
 
 ---
