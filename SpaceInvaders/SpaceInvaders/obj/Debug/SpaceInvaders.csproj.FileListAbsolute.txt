@@ -1,0 +1,8 @@
+C:\Users\pk88yte\Documents\GitHub\P_OO-SpaceInvaders\SpaceInvaders\SpaceInvaders\bin\Debug\SpaceInvaders.exe.config
+C:\Users\pk88yte\Documents\GitHub\P_OO-SpaceInvaders\SpaceInvaders\SpaceInvaders\bin\Debug\SpaceInvaders.exe
+C:\Users\pk88yte\Documents\GitHub\P_OO-SpaceInvaders\SpaceInvaders\SpaceInvaders\bin\Debug\SpaceInvaders.pdb
+C:\Users\pk88yte\Documents\GitHub\P_OO-SpaceInvaders\SpaceInvaders\SpaceInvaders\obj\Debug\SpaceInvaders.csproj.AssemblyReference.cache
+C:\Users\pk88yte\Documents\GitHub\P_OO-SpaceInvaders\SpaceInvaders\SpaceInvaders\obj\Debug\SpaceInvaders.csproj.SuggestedBindingRedirects.cache
+C:\Users\pk88yte\Documents\GitHub\P_OO-SpaceInvaders\SpaceInvaders\SpaceInvaders\obj\Debug\SpaceInvaders.csproj.CoreCompileInputs.cache
+C:\Users\pk88yte\Documents\GitHub\P_OO-SpaceInvaders\SpaceInvaders\SpaceInvaders\obj\Debug\SpaceInvaders.exe
+C:\Users\pk88yte\Documents\GitHub\P_OO-SpaceInvaders\SpaceInvaders\SpaceInvaders\obj\Debug\SpaceInvaders.pdb

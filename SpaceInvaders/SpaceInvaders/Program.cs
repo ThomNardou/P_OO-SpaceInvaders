@@ -10,6 +10,13 @@ namespace SpaceInvaders
     {
         static void Main(string[] args)
         {
+            Console.SetWindowSize(Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
+
+            player player = new player();
+
+            player.show();
+
+            Console.ReadLine();
         }
     }
 }
