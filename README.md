@@ -1,29 +1,28 @@
-# Space Invader en C#
-<!-- ![Space Invader](lien_vers_une_image) -->
+# Space Invader in C#
+<!-- ![Space Invader](link_to_a_image) -->
 
 ## Description
 
-Space Invader en C# est une réinterprétation moderne du célèbre jeu d'arcade classique. Ce projet a été créé dans le cadre d'un apprentissage du langage C# et de la programmation de jeux vidéo. Le jeu met en vedette des vaisseaux extraterrestres envahisseurs, un vaisseau spatial terrestre et une défense de la Terre à l'ancienne.
+Space Invader in C# is a modern reinterpretation of the famous classic arcade game. This project was created as part of an apprenticeship in C# and game programming. The game features invading alien ships, an Earth spaceship and old-fashioned Earth defense.
 
-## Caractéristiques principales
+## Main features
 
-- Des graphismes rétro rappelant les jeux d'arcade des années 80.
-- Des vaisseaux extraterrestres qui descendent progressivement vers la Terre.
-- Un vaisseau spatial terrestre piloté par le joueur.
-- Un système de score pour suivre votre performance.
+- Retro graphics reminiscent of 80s arcade games.
+- Alien ships gradually descending towards Earth.
+- An Earth-based spaceship piloted by the player.
+- A scoring system to track your performance.
 
-## Instructions d'utilisation
+## Instructions for use
 
-1. Clonez ce dépôt vers votre machine locale.
-2. Ouvrez le projet dans votre environnement de développement C# préféré (Visual Studio, Visual Studio Code, etc.).
-3. Compilez et exécutez le jeu.
-4. Utilisez les touches fléchées pour déplacer votre vaisseau spatial et la barre d'espace pour tirer sur les envahisseurs.
-5. Survivez autant que possible et obtenez le meilleur score possible.
+1. Clone this repository to your local machine.
+2. Open the project in your favorite C# development environment (Visual Studio, Visual Studio Code, etc.).
+3. Compile and run the game.
+4. Use the arrow keys to move your spaceship and the spacebar to shoot the invaders.
+5. Survive as long as you can and get the highest score possible.
 
-## Contributions
-
-Les contributions sont les bienvenues ! Si vous souhaitez contribuer à ce projet, veuillez soumettre une demande d'extraction (pull request) avec vos modifications.
+##Important!
+The project is still in progress, but you already have the menu, but you can make your own modifications.
 
 ---
 
-Amusez-vous bien en jouant à Space Invader en C#! Si vous avez des questions ou des suggestions, n'hésitez pas à les partager dans la section des problèmes (issues) du dépôt.
+Have fun playing Space Invader in C#! If you have any questions or suggestions, don't hesitate to share them in the issues section of the repository.
