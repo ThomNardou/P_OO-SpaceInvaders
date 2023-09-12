@@ -35,9 +35,10 @@ namespace SpaceInvaders
             Console.Clear();
             Console.WriteLine(Title + "\n");
 
-            Console.WriteLine("\t\t\t\t1.\tFrançais");
-            Console.WriteLine("\t\t\t\t2.\tEnglish\n");
-            Console.WriteLine("\t\t\t\t3.\tRetour");
+            Console.WriteLine("\tmodifier la langue :\n");
+            Console.WriteLine("\t\t1. Français");
+            Console.WriteLine("\t\t2. English\n");
+            Console.WriteLine("\t\t3. Retour");
 
            chrLanguage = Console.ReadKey(true).KeyChar;
 

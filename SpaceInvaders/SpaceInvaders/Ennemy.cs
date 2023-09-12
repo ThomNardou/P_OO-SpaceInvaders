@@ -6,51 +6,52 @@ using System.Threading.Tasks;
 
 namespace SpaceInvaders
 {
-    internal class Player
+    internal class Ennemy
     {
+
         public int xPos;
         public int yPos;
 
+        public bool goingLeft = false;
+
         ConsoleColor color;
 
-        public ConsoleKeyInfo keyInfo;
+        private string[] _enemy = { "{@v@}", "/\" \"\\" };
 
-        private string[] _player =
-        {
-            " | ",
-            "/@\\"
-        };
-
-        public Player(int x, int y, ConsoleColor color)
+        public Ennemy (int x, int y, ConsoleColor color)
         {
             this.xPos = x;
-            this.yPos = Config.SCREEN_HEIGHT - y;
+            this.yPos = y;
             this.color = color;
         }
+
 
         public void show()
         {
             Console.ForegroundColor = color;
             Console.SetCursorPosition(xPos, yPos);
-            for (int i = 0; i < _player.Length; i++)
+            for (int i = 0; i < _enemy.Length; i++)
             {
                 Console.SetCursorPosition(xPos, yPos + i);
-                Console.WriteLine(_player[i]);
+                Console.WriteLine(_enemy[i]);
             }
         }
 
-        public void updateX()
+        public void updateEnnemyX()
         {
-            if (keyInfo.Key == ConsoleKey.D && xPos < Config.SCREEN_WIDTH - 9)
+            if (goingLeft)
             {
-                xPos += 2;
+                this.xPos--;
             }
-            if (keyInfo.Key == ConsoleKey.A && xPos > 6)
+            else
             {
-                xPos -= 2;
+                this.xPos++;
             }
         }
 
-        
+        public void updateEnnemyY()
+        {
+            this.yPos += 2;
+        }
     }
 }
