@@ -21,7 +21,7 @@ Space Invader in C# is a modern reinterpretation of the famous classic arcade ga
 5. Survive as long as you can and get the highest score possible.
 
 ## Important!
-The project is still in progress, but you already have the menu, but you can make your own modifications.
+The project is still in progress, but you already have the menu and player and ennemy movements, but you can make your own modifications.
 
 ---
 
