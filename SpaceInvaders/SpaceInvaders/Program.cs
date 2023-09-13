@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace SpaceInvaders
 {
@@ -22,8 +20,6 @@ namespace SpaceInvaders
 
             FrenchMenu frenchMenu = new FrenchMenu();
             EnglishMenu englishMenu = new EnglishMenu();
-
-            Ammo ammoTemp;
 
             Player player = new Player(5, 5, ConsoleColor.DarkGreen);
             Ennemy ennemy1 = new Ennemy(5, 5, ConsoleColor.Red);
@@ -111,6 +107,20 @@ namespace SpaceInvaders
 
             do
             {
+
+                for (int i = ammoList.Count() - 1; i > 0; i--)
+                {
+                    if (ammoList.ElementAt(i).yPos >= 2)
+                    {
+                        ammoList.ElementAt(i).Show();
+                        ammoList.ElementAt(i).Update();
+                    }
+                    else
+                    {
+                        ammoList.Remove(ammoList.ElementAt(i));
+                    }
+                }
+
                 player.show();
 
                 if (Console.KeyAvailable)
@@ -126,7 +136,7 @@ namespace SpaceInvaders
                             player.updateXLeft();
                             break;
                         case ConsoleKey.Spacebar:
-                            ammoList.Add(new Ammo(player.xPos + 1, player.yPos + 2, ConsoleColor.Blue));
+                            ammoList.Add(new Ammo(player.xPos, player.yPos, ConsoleColor.Blue));
                             break;
                     }
                 }
@@ -161,24 +171,26 @@ namespace SpaceInvaders
                     }
                 }
 
-                for (int i = ammoList.Count() - 1; i > 0; i--)
-                {
-                    if (ammoList.ElementAt(i).yPos >= 2)
-                    {
-                        ammoList.ElementAt(i).Show();
-                        ammoList.ElementAt(i).Update();
-                    }
-                    else
-                    {
-                        ammoList.Remove(ammoList.ElementAt(i));
-                    }
-                }
 
                 Thread.Sleep(50);
                 Console.Clear();
 
+                if (ammoList.Count() > 0 && ennemyList.Count() > 0)
+                {
+                    for (int i = ennemyList.Count() - 1; i >= 0; i--)
+                    {
+                        for (int j = ammoList.Count() - 1; j >= 0; j--)
+                        {
+                            if ((ennemyList.ElementAt(i).xPos == ammoList.ElementAt(j).xPos || ennemyList.ElementAt(i).xPos+1 == ammoList.ElementAt(j).xPos || ennemyList.ElementAt(i).xPos+2 == ammoList.ElementAt(j).xPos || ennemyList.ElementAt(i).xPos+3 == ammoList.ElementAt(j).xPos || ennemyList.ElementAt(i).xPos+4 == ammoList.ElementAt(j).xPos) && ennemyList.ElementAt(i).yPos == ammoList.ElementAt(j).yPos)
+                            {
+                                ennemyList.Remove(ennemyList.ElementAt(i));
+                            }
+                        }
+                    }
+                }
+
             }
-            while (ennemyList.ElementAt(1).yPos < player.yPos);
+            while (ennemyList.First().yPos < player.yPos && ennemyList.Count() > 0);
 
         }
 
