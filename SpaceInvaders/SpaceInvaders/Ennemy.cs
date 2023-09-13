@@ -41,11 +41,11 @@ namespace SpaceInvaders
         {
             if (goingLeft)
             {
-                this.xPos--;
+                this.xPos-=3;
             }
             else
             {
-                this.xPos++;
+                this.xPos+=3;
             }
         }
 

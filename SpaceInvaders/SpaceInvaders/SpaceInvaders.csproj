@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ammo.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="EnglishMenu.cs" />
     <Compile Include="FrenchMenu.cs" />

@@ -17,7 +17,7 @@ namespace SpaceInvaders
             "\t\t\t\t5.\tQuitter"
         };
 
-        private string Title = "   ____        _   _             \r\n  / __ \\      | | (_)            \r\n | |  | |_ __ | |_ _  ___  _ __  \r\n | |  | | '_ \\| __| |/ _ \\| '_ \\ \r\n | |__| | |_) | |_| | (_) | | | |\r\n  \\____/| .__/ \\__|_|\\___/|_| |_|\r\n        | |                      \r\n        |_|                      ";
+        private string TitleOption = "   ____        _   _             \r\n  / __ \\      | | (_)            \r\n | |  | |_ __ | |_ _  ___  _ __  \r\n | |  | | '_ \\| __| |/ _ \\| '_ \\ \r\n | |__| | |_) | |_| | (_) | | | |\r\n  \\____/| .__/ \\__|_|\\___/|_| |_|\r\n        | |                      \r\n        |_|                      ";
 
         public bool changeLanguage = false;
         private char chrLanguage;
@@ -33,7 +33,7 @@ namespace SpaceInvaders
         public void OptionMenu()
         {
             Console.Clear();
-            Console.WriteLine(Title + "\n");
+            Console.WriteLine(TitleOption + "\n");
 
             Console.WriteLine("\tmodifier la langue :\n");
             Console.WriteLine("\t\t1. Français");

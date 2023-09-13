@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace SpaceInvaders
 {
-    static class Config
+    internal class ammo
     {
-        public const int SCREEN_HEIGHT = 40;
-        public const int SCREEN_WIDTH = 95;
+        private string[] view =
+        {
+            " O ",
+            " | "
+        }; 
     }
 }

@@ -28,11 +28,11 @@ namespace SpaceInvaders
             Ennemy ennemy3 = new Ennemy(15, 5, ConsoleColor.Green);
             Ennemy ennemy4 = new Ennemy(20, 5, ConsoleColor.Gray);
             Ennemy ennemy5 = new Ennemy(25, 5, ConsoleColor.Yellow);
-            Ennemy ennemy6 = new Ennemy(30, 5, ConsoleColor.Red);
-            Ennemy ennemy7 = new Ennemy(35, 5, ConsoleColor.Cyan);
-            Ennemy ennemy8 = new Ennemy(40, 5, ConsoleColor.Green);
-            Ennemy ennemy9 = new Ennemy(45, 5, ConsoleColor.Gray);
-            Ennemy ennemy10 = new Ennemy(50, 5, ConsoleColor.Yellow);
+            Ennemy ennemy6 = new Ennemy(30, 5, ConsoleColor.DarkRed);
+            Ennemy ennemy7 = new Ennemy(35, 5, ConsoleColor.DarkCyan);
+            Ennemy ennemy8 = new Ennemy(40, 5, ConsoleColor.DarkGreen);
+            Ennemy ennemy9 = new Ennemy(45, 5, ConsoleColor.DarkGray);
+            Ennemy ennemy10 = new Ennemy(50, 5, ConsoleColor.DarkYellow);
 
             List<Ennemy> ennemyList = new List<Ennemy>();
 
