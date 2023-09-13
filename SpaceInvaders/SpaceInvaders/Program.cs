@@ -18,10 +18,13 @@ namespace SpaceInvaders
             char chrLanguage;
             char chrChoice;
 
-
+            ConsoleKeyInfo keypPressed;
 
             FrenchMenu frenchMenu = new FrenchMenu();
             EnglishMenu englishMenu = new EnglishMenu();
+
+            Ammo ammoTemp;
+
             Player player = new Player(5, 5, ConsoleColor.DarkGreen);
             Ennemy ennemy1 = new Ennemy(5, 5, ConsoleColor.Red);
             Ennemy ennemy2 = new Ennemy(10, 5, ConsoleColor.Cyan);
@@ -34,6 +37,7 @@ namespace SpaceInvaders
             Ennemy ennemy9 = new Ennemy(45, 5, ConsoleColor.DarkGray);
             Ennemy ennemy10 = new Ennemy(50, 5, ConsoleColor.DarkYellow);
 
+            List<Ammo> ammoList = new List<Ammo>();
             List<Ennemy> ennemyList = new List<Ennemy>();
 
             addEnnemy(ennemyList, ennemy1);
@@ -111,10 +115,22 @@ namespace SpaceInvaders
 
                 if (Console.KeyAvailable)
                 {
-                    player.keyInfo = Console.ReadKey(true);
+                    keypPressed = Console.ReadKey(true);
 
-                    player.updateX();
+                    switch (keypPressed.Key)
+                    {
+                        case ConsoleKey.D:
+                            player.updateXRight();
+                            break;
+                        case ConsoleKey.A:
+                            player.updateXLeft();
+                            break;
+                        case ConsoleKey.Spacebar:
+                            ammoList.Add(new Ammo(player.xPos + 1, player.yPos + 2, ConsoleColor.Blue));
+                            break;
+                    }
                 }
+
 
                 foreach (Ennemy enneShow in ennemyList)
                 {
@@ -142,6 +158,19 @@ namespace SpaceInvaders
                     foreach (Ennemy enneUpdate in ennemyList)
                     {
                         enneUpdate.updateEnnemyX();
+                    }
+                }
+
+                for (int i = ammoList.Count() - 1; i > 0; i--)
+                {
+                    if (ammoList.ElementAt(i).yPos >= 2)
+                    {
+                        ammoList.ElementAt(i).Show();
+                        ammoList.ElementAt(i).Update();
+                    }
+                    else
+                    {
+                        ammoList.Remove(ammoList.ElementAt(i));
                     }
                 }
 

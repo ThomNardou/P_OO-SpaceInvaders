@@ -12,8 +12,7 @@ namespace SpaceInvaders
         public int yPos;
 
         ConsoleColor color;
-
-        public ConsoleKeyInfo keyInfo;
+        
 
         private string[] _player =
         {
@@ -39,13 +38,17 @@ namespace SpaceInvaders
             }
         }
 
-        public void updateX()
+        public void updateXRight()
         {
-            if (keyInfo.Key == ConsoleKey.D && xPos < Config.SCREEN_WIDTH - 9)
+            if (xPos < Config.SCREEN_WIDTH - 9)
             {
                 xPos += 2;
-            }
-            if (keyInfo.Key == ConsoleKey.A && xPos > 6)
+            }  
+        }
+
+        public void updateXLeft()
+        {
+            if (xPos > 6)
             {
                 xPos -= 2;
             }
