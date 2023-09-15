@@ -19,10 +19,15 @@ namespace SpicyConso
             char chrLanguage;
             char chrChoice;
 
+            bool isEmpty = false;
+
             const int MODEL_HEIGHT = Model.Config.SCREEN_HEIGHT;
             const int MODEL_WIDTH = Model.Config.SCREEN_WIDTH;
 
             ConsoleKeyInfo keypPressed;
+
+            List<Ammo> ammoList = new List<Ammo>();
+            List<Ennemy> ennemyList = new List<Ennemy>();
 
             FrenchMenu frenchMenu = new FrenchMenu();
             EnglishMenu englishMenu = new EnglishMenu();
@@ -38,9 +43,6 @@ namespace SpicyConso
             Ennemy ennemy8 = new Ennemy(40, 5, ConsoleColor.DarkGreen);
             Ennemy ennemy9 = new Ennemy(45, 5, ConsoleColor.DarkGray);
             Ennemy ennemy10 = new Ennemy(50, 5, ConsoleColor.DarkYellow);
-
-            List<Ammo> ammoList = new List<Ammo>();
-            List<Ennemy> ennemyList = new List<Ennemy>();
 
             addEnnemy(ennemyList, ennemy1);
             addEnnemy(ennemyList, ennemy2);
@@ -183,22 +185,27 @@ namespace SpicyConso
                 Thread.Sleep(50);
                 Console.Clear();
 
-                if (ammoList.Count() > 0 && ennemyList.Count() >= 0)
+                if (ammoList.Count() > 0 && ennemyList.Count() > 0)
                 {
-                    for (int i = ennemyList.Count() - 1; i >= 0; i--)
+                    for (int i = ammoList.Count() - 1; i >= 0; i--)
                     {
-                        for (int j = ammoList.Count() - 1; j >= 0; j--)
+                        for (int j = ennemyList.Count() - 1; j >= 0; j--)
                         {
-                            if ((ennemyList.ElementAt(i).xPos == ammoList.ElementAt(j).xPos || ennemyList.ElementAt(i).xPos+1 == ammoList.ElementAt(j).xPos || ennemyList.ElementAt(i).xPos+2 == ammoList.ElementAt(j).xPos || ennemyList.ElementAt(i).xPos+3 == ammoList.ElementAt(j).xPos || ennemyList.ElementAt(i).xPos+4 == ammoList.ElementAt(j).xPos) && ennemyList.ElementAt(i).yPos == ammoList.ElementAt(j).yPos)
+                            if ((ennemyList.ElementAt(j).xPos == ammoList.ElementAt(i).xPos || ennemyList.ElementAt(j).xPos+1 == ammoList.ElementAt(i).xPos || ennemyList.ElementAt(j).xPos+2 == ammoList.ElementAt(i).xPos || ennemyList.ElementAt(j).xPos+3 == ammoList.ElementAt(i).xPos || ennemyList.ElementAt(j).xPos+4 == ammoList.ElementAt(i).xPos) && ennemyList.ElementAt(j).yPos == ammoList.ElementAt(i).yPos)
                             {
-                                ennemyList.Remove(ennemyList.ElementAt(i));
+                                ennemyList.Remove(ennemyList.ElementAt(j));
                             }
                         }
                     }
                 }
 
+                if (ennemyList.Count <= 0 || ennemyList.First().yPos >= player.yPos)
+                {
+                    isEmpty = true;
+                }
+
             }
-            while (ennemyList.First().yPos < player.yPos && ennemyList.Count() > 0);
+            while (!isEmpty || ennemyList.Count() > 0);
 
         }
 
