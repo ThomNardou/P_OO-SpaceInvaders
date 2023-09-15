@@ -53,6 +53,8 @@ namespace SpicyConso
             addEnnemy(ennemyList, ennemy9);
             addEnnemy(ennemyList, ennemy10);
 
+            Console.ForegroundColor = ConsoleColor.White;
+
             Console.Write("\n\n\tPlease select a language (français/English) <f/e> : ");
             chrLanguage = Console.ReadKey(true).KeyChar;
 
@@ -135,14 +137,14 @@ namespace SpicyConso
 
                     switch (keypPressed.Key)
                     {
+                        case ConsoleKey.Spacebar:
+                            ammoList.Add(new Ammo(player.xPos, player.yPos, ConsoleColor.Blue));
+                            break;
                         case ConsoleKey.D:
                             player.updateXRight();
                             break;
                         case ConsoleKey.A:
                             player.updateXLeft();
-                            break;
-                        case ConsoleKey.Spacebar:
-                            ammoList.Add(new Ammo(player.xPos, player.yPos, ConsoleColor.Blue));
                             break;
                     }
                 }
@@ -181,7 +183,7 @@ namespace SpicyConso
                 Thread.Sleep(50);
                 Console.Clear();
 
-                if (ammoList.Count() > 0 && ennemyList.Count() > 0)
+                if (ammoList.Count() > 0 && ennemyList.Count() >= 0)
                 {
                     for (int i = ennemyList.Count() - 1; i >= 0; i--)
                     {
