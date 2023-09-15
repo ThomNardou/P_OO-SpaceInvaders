@@ -14,9 +14,9 @@ namespace Model
 
         public bool goingLeft = false;
 
-        ConsoleColor color;
+        public ConsoleColor color;
 
-        private string[] _enemy = { "{@v@}", "/\" \"\\" };
+        
 
         public Ennemy (int x, int y, ConsoleColor color)
         {
@@ -26,16 +26,7 @@ namespace Model
         }
 
 
-        public void show()
-        {
-            Console.ForegroundColor = color;
-            Console.SetCursorPosition(xPos, yPos);
-            for (int i = 0; i < _enemy.Length; i++)
-            {
-                Console.SetCursorPosition(xPos, yPos + i);
-                Console.WriteLine(_enemy[i]);
-            }
-        }
+        
 
         public void updateEnnemyX()
         {

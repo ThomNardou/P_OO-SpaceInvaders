@@ -109,7 +109,7 @@ namespace SpicyConso
             }
             while (chrChoice != '1');
 
-            Console.SetWindowSize(MODEL_WIDTH, MODEL_HEIGHT);
+            PlayGround.Init();
 
             do
             {
@@ -118,7 +118,7 @@ namespace SpicyConso
                 {
                     if (ammoList.ElementAt(i).yPos >= 2)
                     {
-                        ammoList.ElementAt(i).Show();
+                        PlayGround.ShowAmmo(ammoList.ElementAt(i));
                         ammoList.ElementAt(i).Update();
                     }
                     else
@@ -127,7 +127,7 @@ namespace SpicyConso
                     }
                 }
 
-                player.show();
+                PlayGround.showPlayer(player);
 
                 if (Console.KeyAvailable)
                 {
@@ -150,7 +150,7 @@ namespace SpicyConso
 
                 foreach (Ennemy enneShow in ennemyList)
                 {
-                    enneShow.show();
+                    PlayGround.showEnnemy(enneShow);
                 }
 
                 if ((ennemyList.Last().xPos >= MODEL_WIDTH - 10 && !ennemyList.Last().goingLeft) || (ennemyList.First().xPos <= 5 && ennemyList.First().goingLeft))
