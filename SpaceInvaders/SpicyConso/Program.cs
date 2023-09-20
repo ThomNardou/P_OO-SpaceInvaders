@@ -187,25 +187,11 @@ namespace SpicyConso
 
                 if (ammoList.Count() > 0 && ennemyList.Count() > 0)
                 {
-                    for (int i = ammoList.Count() - 1; i >= 0; i--)
-                    {
-                        for (int j = ennemyList.Count() - 1; j >= 0; j--)
-                        {
-                            if ((ennemyList.ElementAt(j).xPos == ammoList.ElementAt(i).xPos || ennemyList.ElementAt(j).xPos+1 == ammoList.ElementAt(i).xPos || ennemyList.ElementAt(j).xPos+2 == ammoList.ElementAt(i).xPos || ennemyList.ElementAt(j).xPos+3 == ammoList.ElementAt(i).xPos || ennemyList.ElementAt(j).xPos+4 == ammoList.ElementAt(i).xPos) && ennemyList.ElementAt(j).yPos == ammoList.ElementAt(i).yPos)
-                            {
-                                ennemyList.Remove(ennemyList.ElementAt(j));
-                            }
-                        }
-                    }
-                }
-
-                if (ennemyList.Count <= 0 || ennemyList.First().yPos >= player.yPos)
-                {
-                    isEmpty = true;
+                    ammoList.First().killsEnnemy(ennemyList, ammoList);
                 }
 
             }
-            while (!isEmpty || ennemyList.Count() > 0);
+            while (ennemyList.First().yPos < player.yPos || ennemyList.Count() > 0);
 
         }
 

@@ -27,5 +27,19 @@ namespace Model
         {
             yPos-=2;
         }
+
+        public void killsEnnemy(List<Ennemy> ennemyList, List<Ammo> ammoList)
+        {
+            for (int i = 0; i < ammoList.Count(); i++)
+            {
+                for (int j = 0; j < ennemyList.Count(); j++)
+                {
+                    if ((ennemyList.ElementAt(j).xPos == ammoList.ElementAt(i).xPos || ennemyList.ElementAt(j).xPos + 1 == ammoList.ElementAt(i).xPos || ennemyList.ElementAt(j).xPos + 2 == ammoList.ElementAt(i).xPos || ennemyList.ElementAt(j).xPos + 3 == ammoList.ElementAt(i).xPos || ennemyList.ElementAt(j).xPos + 4 == ammoList.ElementAt(i).xPos) && ennemyList.ElementAt(j).yPos == ammoList.ElementAt(i).yPos)
+                    {
+                        ennemyList.Remove(ennemyList.ElementAt(j));
+                    }
+                }
+            }
+        }
     }
 }
