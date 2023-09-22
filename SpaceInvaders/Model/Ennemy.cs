@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Model
 {
@@ -14,7 +15,7 @@ namespace Model
 
         public bool goingLeft = false;
 
-        public ConsoleColor color;
+        public ConsoleColor _color;
 
         
 
@@ -22,7 +23,7 @@ namespace Model
         {
             this.xPos = x;
             this.yPos = y;
-            this.color = color;
+            this._color = color;
         }
 
 
@@ -44,5 +45,7 @@ namespace Model
         {
             this.yPos += 2;
         }
+
+        
     }
 }

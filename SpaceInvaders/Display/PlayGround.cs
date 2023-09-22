@@ -41,7 +41,7 @@ namespace Display
 
         static public void showEnnemy(Ennemy ennemy)
         {
-            Console.ForegroundColor = ennemy.color;
+            Console.ForegroundColor = ennemy._color;
             Console.SetCursorPosition(ennemy.xPos, ennemy.yPos);
             for (int i = 0; i < _enemy.Length; i++)
             {

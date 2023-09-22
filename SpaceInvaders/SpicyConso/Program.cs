@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using System.Drawing;
 using Model;
 using Display;
 
@@ -19,7 +20,11 @@ namespace SpicyConso
             char chrLanguage;
             char chrChoice;
 
-            bool isEmpty = false;
+            int Compteur = 5;
+
+            bool samePosition = false;
+
+            Random random = new Random();
 
             const int MODEL_HEIGHT = Model.Config.SCREEN_HEIGHT;
             const int MODEL_WIDTH = Model.Config.SCREEN_WIDTH;
@@ -33,27 +38,13 @@ namespace SpicyConso
             EnglishMenu englishMenu = new EnglishMenu();
 
             Player player = new Player(5, 5, ConsoleColor.DarkGreen);
-            Ennemy ennemy1 = new Ennemy(5, 5, ConsoleColor.Red);
-            Ennemy ennemy2 = new Ennemy(10, 5, ConsoleColor.Cyan);
-            Ennemy ennemy3 = new Ennemy(15, 5, ConsoleColor.Green);
-            Ennemy ennemy4 = new Ennemy(20, 5, ConsoleColor.Gray);
-            Ennemy ennemy5 = new Ennemy(25, 5, ConsoleColor.Yellow);
-            Ennemy ennemy6 = new Ennemy(30, 5, ConsoleColor.DarkRed);
-            Ennemy ennemy7 = new Ennemy(35, 5, ConsoleColor.DarkCyan);
-            Ennemy ennemy8 = new Ennemy(40, 5, ConsoleColor.DarkGreen);
-            Ennemy ennemy9 = new Ennemy(45, 5, ConsoleColor.DarkGray);
-            Ennemy ennemy10 = new Ennemy(50, 5, ConsoleColor.DarkYellow);
 
-            addEnnemy(ennemyList, ennemy1);
-            addEnnemy(ennemyList, ennemy2);
-            addEnnemy(ennemyList, ennemy3);
-            addEnnemy(ennemyList, ennemy4);
-            addEnnemy(ennemyList, ennemy5);
-            addEnnemy(ennemyList, ennemy6);
-            addEnnemy(ennemyList, ennemy7);
-            addEnnemy(ennemyList, ennemy8);
-            addEnnemy(ennemyList, ennemy9);
-            addEnnemy(ennemyList, ennemy10);
+            for (int i = 0; i < 10; i++)
+            {
+                //Color color = Color.FromArgb(random.Next(255), random.Next(255), random.Next(255));
+                ennemyList.Add(new Ennemy(Compteur, 5, ConsoleColor.Cyan));
+                Compteur += 5;
+            }
 
             Console.ForegroundColor = ConsoleColor.White;
 
@@ -66,6 +57,8 @@ namespace SpicyConso
 
             do
             {
+
+
                 Console.WriteLine(strTitle + "\n");
                 if (frenchMenu.changeLanguage)
                 {
@@ -74,10 +67,8 @@ namespace SpicyConso
                 }
                 if (englishMenu.changeLanguage)
                 {
-                    {
-                        chrLanguage = 'f';
-                        frenchMenu.changeLanguage = false;
-                    }
+                    chrLanguage = 'f';
+                    englishMenu.changeLanguage = false;
                 }
 
                 if (chrLanguage == 'f' || chrLanguage == 'F')
@@ -190,8 +181,18 @@ namespace SpicyConso
                     ammoList.First().killsEnnemy(ennemyList, ammoList);
                 }
 
+                
+                for (int i = 0; i < ennemyList.Count(); i++)
+                {
+                    samePosition = checkPosition(player, ennemyList);
+                }
+
             }
-            while (ennemyList.First().yPos < player.yPos || ennemyList.Count() > 0);
+            while (!samePosition && ennemyList.Count() > 0);
+
+            Console.Clear();
+            Console.WriteLine("all anemies are killed");
+            Console.ReadLine();
 
         }
 
@@ -200,9 +201,17 @@ namespace SpicyConso
             Environment.Exit(0);
         }
 
-        static void addEnnemy(List<Ennemy> ennList, Ennemy _ennemy)
+        static bool checkPosition(Player player, List<Ennemy> ennList)
         {
-            ennList.Add(_ennemy);
+            if (ennList != null)
+            {
+                if (player.yPos == ennList.First().yPos)
+                {
+                    return true;
+                        
+                }
+            }
+            return false;
         }
     }
 }
