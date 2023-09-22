@@ -26,6 +26,7 @@ namespace Display
         public static void Init()
         {
             Console.SetWindowSize(Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
+            Console.CursorVisible = false;
         }
 
         static public void showPlayer(Player player)

@@ -41,7 +41,6 @@ namespace SpicyConso
 
             for (int i = 0; i < 10; i++)
             {
-                //Color color = Color.FromArgb(random.Next(255), random.Next(255), random.Next(255));
                 ennemyList.Add(new Ennemy(Compteur, 5, ConsoleColor.Cyan));
                 Compteur += 5;
             }
@@ -53,7 +52,7 @@ namespace SpicyConso
 
             Console.Clear();
 
-            Console.CursorVisible = false;
+            
 
             do
             {

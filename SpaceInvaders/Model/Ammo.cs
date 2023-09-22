@@ -14,7 +14,7 @@ namespace Model
 
         public ConsoleColor color;
 
-        
+
 
         public Ammo(int xPos, int yPos, ConsoleColor color)
         {
@@ -25,20 +25,23 @@ namespace Model
 
         public void Update()
         {
-            yPos-=2;
+            yPos -= 2;
         }
 
         public void killsEnnemy(List<Ennemy> ennemyList, List<Ammo> ammoList)
         {
-            for (int i = 0; i < ammoList.Count(); i++)
+            for (int i = 0; i < ennemyList.Count(); i++)
             {
-                for (int j = 0; j < ennemyList.Count(); j++)
+
+                for (int j = 0; j < ammoList.Count(); j++)
                 {
-                    if ((ennemyList.ElementAt(j).xPos == ammoList.ElementAt(i).xPos || ennemyList.ElementAt(j).xPos + 1 == ammoList.ElementAt(i).xPos || ennemyList.ElementAt(j).xPos + 2 == ammoList.ElementAt(i).xPos || ennemyList.ElementAt(j).xPos + 3 == ammoList.ElementAt(i).xPos || ennemyList.ElementAt(j).xPos + 4 == ammoList.ElementAt(i).xPos) && ennemyList.ElementAt(j).yPos == ammoList.ElementAt(i).yPos)
+                    if (ennemyList[i].yPos >= ammoList[j].yPos && ennemyList[i].yPos <= ammoList[j].yPos + 1 && ammoList[j].xPos >= ennemyList[i].xPos && ammoList[j].xPos <= ennemyList[i].xPos + 4)
                     {
-                        ennemyList.Remove(ennemyList.ElementAt(j));
+                        ennemyList.Remove(ennemyList[i]);
+                        break;
                     }
                 }
+
             }
         }
     }
