@@ -18,6 +18,7 @@ namespace Model
         };
 
         private string TitleOption = "   ____        _   _             \r\n  / __ \\      | | (_)            \r\n | |  | |_ __ | |_ _  ___  _ __  \r\n | |  | | '_ \\| __| |/ _ \\| '_ \\ \r\n | |__| | |_) | |_| | (_) | | | |\r\n  \\____/| .__/ \\__|_|\\___/|_| |_|\r\n        | |                      \r\n        |_|                      ";
+        private string LostTitle = "  _______                                     _       \r\n |__   __|                                   | |      \r\n    | |_   _    __ _ ___   _ __   ___ _ __ __| |_   _ \r\n    | | | | |  / _` / __| | '_ \\ / _ \\ '__/ _` | | | |\r\n    | | |_| | | (_| \\__ \\ | |_) |  __/ | | (_| | |_| |\r\n    |_|\\__,_|  \\__,_|___/ | .__/ \\___|_|  \\__,_|\\__,_|\r\n                          | |                         \r\n                          |_|                         ";
 
         public bool changeLanguage = false;
         private char chrLanguage;
@@ -45,6 +46,14 @@ namespace Model
             if (chrLanguage == '2')
                 changeLanguage = true;
 
+        }
+
+        public void LoseMenu()
+        {
+            Console.Clear();
+            Console.WriteLine(LostTitle + "\n");
+
+            Console.WriteLine("\tAppyer sur une touche pour retourner au menu principal :\n");
         }
     }
 }

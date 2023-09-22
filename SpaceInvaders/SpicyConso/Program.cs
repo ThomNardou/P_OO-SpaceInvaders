@@ -26,7 +26,6 @@ namespace SpicyConso
 
             Random random = new Random();
 
-            const int MODEL_HEIGHT = Model.Config.SCREEN_HEIGHT;
             const int MODEL_WIDTH = Model.Config.SCREEN_WIDTH;
 
             ConsoleKeyInfo keypPressed;
@@ -39,11 +38,7 @@ namespace SpicyConso
 
             Player player = new Player(5, 5, ConsoleColor.DarkGreen);
 
-            for (int i = 0; i < 10; i++)
-            {
-                ennemyList.Add(new Ennemy(Compteur, 5, ConsoleColor.Cyan));
-                Compteur += 5;
-            }
+            
 
             Console.ForegroundColor = ConsoleColor.White;
 
@@ -52,147 +47,169 @@ namespace SpicyConso
 
             Console.Clear();
 
-            
-
             do
             {
 
-
-                Console.WriteLine(strTitle + "\n");
-                if (frenchMenu.changeLanguage)
+                for (int i = 0; i < 10; i++)
                 {
-                    chrLanguage = 'e';
-                    frenchMenu.changeLanguage = false;
-                }
-                if (englishMenu.changeLanguage)
-                {
-                    chrLanguage = 'f';
-                    englishMenu.changeLanguage = false;
+                    ennemyList.Add(new Ennemy(Compteur, 5, ConsoleColor.Cyan));
+                    Compteur += 5;
                 }
 
-                if (chrLanguage == 'f' || chrLanguage == 'F')
+                Console.ForegroundColor = ConsoleColor.White;
+                do
                 {
-                    frenchMenu.ShowMenu();
-
-                    chrChoice = Console.ReadKey(true).KeyChar;
-
-                    if (chrChoice == '2')
+                    Console.WriteLine(strTitle + "\n");
+                    if (frenchMenu.changeLanguage)
                     {
-                        frenchMenu.OptionMenu();
+                        chrLanguage = 'e';
+                        frenchMenu.changeLanguage = false;
                     }
-                    else if (chrChoice == '5')
-                        ExitGame();
-
-                }
-                else
-                {
-                    englishMenu.ShowMenu();
-
-                    chrChoice = Console.ReadKey(true).KeyChar;
-
-                    if (chrChoice == '2')
+                    if (englishMenu.changeLanguage)
                     {
-                        englishMenu.OptionMenu();
-
+                        chrLanguage = 'f';
+                        englishMenu.changeLanguage = false;
                     }
-                    else if (chrChoice == '5')
-                        ExitGame();
-                }
 
-                Console.Clear();
-            }
-            while (chrChoice != '1');
-
-            PlayGround.Init();
-
-            do
-            {
-
-                for (int i = ammoList.Count() - 1; i > 0; i--)
-                {
-                    if (ammoList.ElementAt(i).yPos >= 2)
+                    if (chrLanguage == 'f' || chrLanguage == 'F')
                     {
-                        PlayGround.ShowAmmo(ammoList.ElementAt(i));
-                        ammoList.ElementAt(i).Update();
+                        frenchMenu.ShowMenu();
+
+                        chrChoice = Console.ReadKey(true).KeyChar;
+
+                        if (chrChoice == '2')
+                        {
+                            frenchMenu.OptionMenu();
+                        }
+                        else if (chrChoice == '5')
+                            ExitGame();
+
                     }
                     else
                     {
-                        ammoList.Remove(ammoList.ElementAt(i));
-                    }
-                }
+                        englishMenu.ShowMenu();
 
-                PlayGround.showPlayer(player);
+                        chrChoice = Console.ReadKey(true).KeyChar;
 
-                if (Console.KeyAvailable)
-                {
-                    keypPressed = Console.ReadKey(true);
-
-                    switch (keypPressed.Key)
-                    {
-                        case ConsoleKey.Spacebar:
-                            ammoList.Add(new Ammo(player.xPos, player.yPos, ConsoleColor.Blue));
-                            break;
-                        case ConsoleKey.D:
-                            player.updateXRight();
-                            break;
-                        case ConsoleKey.A:
-                            player.updateXLeft();
-                            break;
-                    }
-                }
-
-
-                foreach (Ennemy enneShow in ennemyList)
-                {
-                    PlayGround.showEnnemy(enneShow);
-                }
-
-                if ((ennemyList.Last().xPos >= MODEL_WIDTH - 10 && !ennemyList.Last().goingLeft) || (ennemyList.First().xPos <= 5 && ennemyList.First().goingLeft))
-                {
-                    foreach (Ennemy enneUpdate in ennemyList)
-                    {
-                        enneUpdate.updateEnnemyY();
-                        if (ennemyList.First().xPos <= 5)
+                        if (chrChoice == '2')
                         {
-                            enneUpdate.goingLeft = false;
+                            englishMenu.OptionMenu();
+
                         }
-                        else if (ennemyList.Last().xPos >= MODEL_WIDTH - 10)
+                        else if (chrChoice == '5')
+                            ExitGame();
+                    }
+
+                    Console.Clear();
+                }
+                while (chrChoice != '1');
+
+                PlayGround.Init();
+
+                do
+                {
+
+                    for (int i = ammoList.Count() - 1; i > 0; i--)
+                    {
+                        if (ammoList.ElementAt(i).yPos >= 2)
                         {
-                            enneUpdate.goingLeft = true;
+                            PlayGround.ShowAmmo(ammoList.ElementAt(i));
+                            ammoList.ElementAt(i).Update();
+                        }
+                        else
+                        {
+                            ammoList.Remove(ammoList.ElementAt(i));
                         }
                     }
-                }
 
-                else
-                {
-                    foreach (Ennemy enneUpdate in ennemyList)
+                    PlayGround.showPlayer(player);
+
+                    if (Console.KeyAvailable)
                     {
-                        enneUpdate.updateEnnemyX();
+                        keypPressed = Console.ReadKey(true);
+
+                        switch (keypPressed.Key)
+                        {
+                            case ConsoleKey.Spacebar:
+                                ammoList.Add(new Ammo(player.xPos, player.yPos, ConsoleColor.Blue));
+                                break;
+                            case ConsoleKey.D:
+                                player.updateXRight();
+                                break;
+                            case ConsoleKey.A:
+                                player.updateXLeft();
+                                break;
+                        }
                     }
+
+
+                    foreach (Ennemy enneShow in ennemyList)
+                    {
+                        PlayGround.showEnnemy(enneShow);
+                    }
+
+                    if ((ennemyList.Last().xPos >= MODEL_WIDTH - 10 && !ennemyList.Last().goingLeft) || (ennemyList.First().xPos <= 5 && ennemyList.First().goingLeft))
+                    {
+                        foreach (Ennemy enneUpdate in ennemyList)
+                        {
+                            enneUpdate.updateEnnemyY();
+                            if (ennemyList.First().xPos <= 5)
+                            {
+                                enneUpdate.goingLeft = false;
+                            }
+                            else if (ennemyList.Last().xPos >= MODEL_WIDTH - 10)
+                            {
+                                enneUpdate.goingLeft = true;
+                            }
+                        }
+                    }
+
+                    else
+                    {
+                        foreach (Ennemy enneUpdate in ennemyList)
+                        {
+                            enneUpdate.updateEnnemyX();
+                        }
+                    }
+
+
+                    Thread.Sleep(50);
+                    Console.Clear();
+
+                    if (ammoList.Count() > 0 && ennemyList.Count() > 0)
+                    {
+                        ammoList.First().killsEnnemy(ennemyList, ammoList);
+                    }
+
+
+                    for (int i = 0; i < ennemyList.Count(); i++)
+                    {
+                        samePosition = checkPosition(player, ennemyList);
+                    }
+
                 }
+                while (!samePosition && ennemyList.Count() > 0);
 
-
-                Thread.Sleep(50);
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.Clear();
 
-                if (ammoList.Count() > 0 && ennemyList.Count() > 0)
+                if (samePosition)
                 {
-                    ammoList.First().killsEnnemy(ennemyList, ammoList);
+                    if (chrLanguage == 'e' || chrLanguage == 'E')
+                    {
+                        englishMenu.LoseMenu();
+                    }
+                    else if (chrLanguage == 'f' || chrLanguage == 'f')
+                    {
+                        frenchMenu.LoseMenu();
+                    }
                 }
 
-                
-                for (int i = 0; i < ennemyList.Count(); i++)
-                {
-                    samePosition = checkPosition(player, ennemyList);
-                }
-
+                resetValues(player, Compteur, ennemyList);
+                Console.ReadKey();
+                Console.Clear();
             }
-            while (!samePosition && ennemyList.Count() > 0);
-
-            Console.Clear();
-            Console.WriteLine("all anemies are killed");
-            Console.ReadLine();
-
+            while (true);
         }
 
         static void ExitGame()
@@ -212,5 +229,23 @@ namespace SpicyConso
             }
             return false;
         }
+
+        static void resetValues(Player play, int compteur, List<Ennemy> ennList)
+        {
+            play.xPos = 5;
+            compteur = 5;
+
+            for (int i = 0; i < ennList.Count(); i++)
+            {
+                ennList[i].yPos = 5;
+            }
+            if (ennList != null)
+            {
+                ennList.Clear();
+            }
+
+        }
+
+
     }
 }
