@@ -24,8 +24,6 @@ namespace SpicyConso
 
             bool samePosition = false;
 
-            Random random = new Random();
-
             const int MODEL_WIDTH = Model.Config.SCREEN_WIDTH;
 
             ConsoleKeyInfo keypPressed;
@@ -35,12 +33,9 @@ namespace SpicyConso
 
             FrenchMenu frenchMenu = new FrenchMenu();
             EnglishMenu englishMenu = new EnglishMenu();
-
             Player player = new Player(5, 5, ConsoleColor.DarkGreen);
 
-            
-
-            Console.ForegroundColor = ConsoleColor.White;
+            PlayGround.Init();
 
             Console.Write("\n\n\tPlease select a language (français/English) <f/e> : ");
             chrLanguage = Console.ReadKey(true).KeyChar;
@@ -103,8 +98,6 @@ namespace SpicyConso
                     Console.Clear();
                 }
                 while (chrChoice != '1');
-
-                PlayGround.Init();
 
                 do
                 {
@@ -205,7 +198,22 @@ namespace SpicyConso
                     }
                 }
 
-                resetValues(player, Compteur, ennemyList);
+                else 
+                {
+                    if (chrLanguage == 'e' || chrLanguage == 'E')
+                    {
+                        englishMenu.WinMenu();
+                    }
+                    else if (chrLanguage == 'f' || chrLanguage == 'f')
+                    {
+                        frenchMenu.WinMenu();
+                    }
+                }
+
+                player.xPos = 5;
+                Compteur = 5;
+                ennemyList.Clear();
+                ammoList.Clear();
                 Console.ReadKey();
                 Console.Clear();
             }
@@ -224,28 +232,10 @@ namespace SpicyConso
                 if (player.yPos == ennList.First().yPos)
                 {
                     return true;
-                        
+
                 }
             }
             return false;
         }
-
-        static void resetValues(Player play, int compteur, List<Ennemy> ennList)
-        {
-            play.xPos = 5;
-            compteur = 5;
-
-            for (int i = 0; i < ennList.Count(); i++)
-            {
-                ennList[i].yPos = 5;
-            }
-            if (ennList != null)
-            {
-                ennList.Clear();
-            }
-
-        }
-
-
     }
 }

@@ -27,6 +27,7 @@ namespace Display
         {
             Console.SetWindowSize(Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
             Console.CursorVisible = false;
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         static public void showPlayer(Player player)
