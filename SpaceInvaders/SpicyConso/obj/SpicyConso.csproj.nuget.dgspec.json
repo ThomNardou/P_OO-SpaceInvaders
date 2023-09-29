@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\SpicyConso\\SpicyConso.csproj": {}
+    "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\SpicyConso\\SpicyConso.csproj": {}
   },
   "projects": {
-    "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Display\\Display.csproj": {
+    "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Display\\Display.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Display\\Display.csproj",
+        "projectUniqueName": "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Display\\Display.csproj",
         "projectName": "Display",
-        "projectPath": "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Display\\Display.csproj",
-        "packagesPath": "C:\\Users\\Talis\\.nuget\\packages\\",
-        "outputPath": "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Display\\obj\\",
+        "projectPath": "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Display\\Display.csproj",
+        "packagesPath": "C:\\Users\\pk88yte\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Display\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Talis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pk88yte\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,15 +27,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Model\\Model.csproj": {
-                "projectPath": "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Model\\Model.csproj"
+              "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Model\\Model.csproj": {
+                "projectPath": "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Model\\Model.csproj"
               }
             }
           }
@@ -54,8 +54,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -64,24 +63,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Model\\Model.csproj": {
+    "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Model\\Model.csproj",
+        "projectUniqueName": "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Model\\Model.csproj",
         "projectName": "Model",
-        "projectPath": "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Model\\Model.csproj",
-        "packagesPath": "C:\\Users\\Talis\\.nuget\\packages\\",
-        "outputPath": "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Model\\obj\\",
+        "projectPath": "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Model\\Model.csproj",
+        "packagesPath": "C:\\Users\\pk88yte\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Talis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pk88yte\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -90,7 +90,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -114,8 +113,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -124,24 +122,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\SpicyConso\\SpicyConso.csproj": {
+    "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\SpicyConso\\SpicyConso.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\SpicyConso\\SpicyConso.csproj",
+        "projectUniqueName": "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\SpicyConso\\SpicyConso.csproj",
         "projectName": "SpicyConso",
-        "projectPath": "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\SpicyConso\\SpicyConso.csproj",
-        "packagesPath": "C:\\Users\\Talis\\.nuget\\packages\\",
-        "outputPath": "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\SpicyConso\\obj\\",
+        "projectPath": "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\SpicyConso\\SpicyConso.csproj",
+        "packagesPath": "C:\\Users\\pk88yte\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\SpicyConso\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Talis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pk88yte\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -150,21 +149,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Display\\Display.csproj": {
-                "projectPath": "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Display\\Display.csproj"
+              "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Display\\Display.csproj": {
+                "projectPath": "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Display\\Display.csproj"
               },
-              "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Model\\Model.csproj": {
-                "projectPath": "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Model\\Model.csproj"
+              "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Model\\Model.csproj": {
+                "projectPath": "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Model\\Model.csproj"
               },
-              "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Storage\\Storage.csproj": {
-                "projectPath": "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Storage\\Storage.csproj"
+              "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Storage\\Storage.csproj": {
+                "projectPath": "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Storage\\Storage.csproj"
               }
             }
           }
@@ -184,8 +182,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -194,24 +191,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Storage\\Storage.csproj": {
+    "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Storage\\Storage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Storage\\Storage.csproj",
+        "projectUniqueName": "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Storage\\Storage.csproj",
         "projectName": "Storage",
-        "projectPath": "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Storage\\Storage.csproj",
-        "packagesPath": "C:\\Users\\Talis\\.nuget\\packages\\",
-        "outputPath": "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Storage\\obj\\",
+        "projectPath": "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Storage\\Storage.csproj",
+        "packagesPath": "C:\\Users\\pk88yte\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Storage\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Talis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pk88yte\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -220,15 +218,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Model\\Model.csproj": {
-                "projectPath": "E:\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Model\\Model.csproj"
+              "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Model\\Model.csproj": {
+                "projectPath": "C:\\Users\\pk88yte\\Documents\\GitHub\\P_OO-SpaceInvaders\\SpaceInvaders\\Model\\Model.csproj"
               }
             }
           }
@@ -242,14 +239,19 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -258,7 +260,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

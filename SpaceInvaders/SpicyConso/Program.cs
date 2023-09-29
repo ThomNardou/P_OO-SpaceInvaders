@@ -15,7 +15,19 @@ namespace SpicyConso
         {
 
 
-            string strTitle = "   _____                        _____                     _               \r\n  / ____|                      |_   _|                   | |              \r\n | (___  _ __   __ _  ___ ___    | |  _ ____   ____ _  __| | ___ _ __ ___ \r\n  \\___ \\| '_ \\ / _` |/ __/ _ \\   | | | '_ \\ \\ / / _` |/ _` |/ _ \\ '__/ __|\r\n  ____) | |_) | (_| | (_|  __/  _| |_| | | \\ V / (_| | (_| |  __/ |  \\__ \\\r\n |_____/| .__/ \\__,_|\\___\\___| |_____|_| |_|\\_/ \\__,_|\\__,_|\\___|_|  |___/\r\n        | |                                                               \r\n        |_|                                                               ";
+            //string strTitle = "        |_|                                                               ";
+
+            string[] strTitle =
+            {
+                "   _____                        _____                     _               \r\n",
+                "  / ____|                      |_   _|                   | |              \r\n",
+                " | (___  _ __   __ _  ___ ___    | |  _ ____   ____ _  __| | ___ _ __ ___ \r\n",
+                "  \\___ \\| '_ \\ / _` |/ __/ _ \\   | | | '_ \\ \\ / / _` |/ _` |/ _ \\ '__/ __|\r\n",
+                "  ____) | |_) | (_| | (_|  __/  _| |_| | | \\ V / (_| | (_| |  __/ |  \\__ \\\r\n",
+                " |_____/| .__/ \\__,_|\\___\\___| |_____|_| |_|\\_/ \\__,_|\\__,_|\\___|_|  |___/\r\n",
+                "        | |                                                               \r\n",
+                "      |_|                                                               "
+            };
 
             char chrLanguage;
             char chrChoice;
@@ -50,11 +62,18 @@ namespace SpicyConso
                     ennemyList.Add(new Ennemy(Compteur, 5, ConsoleColor.Cyan));
                     Compteur += 5;
                 }
+                Console.WriteLine();
 
                 Console.ForegroundColor = ConsoleColor.White;
                 do
                 {
-                    Console.WriteLine(strTitle + "\n");
+
+                    for (int i = 0; i < strTitle.Length; i++)
+                    {
+                        Console.SetCursorPosition((Console.WindowWidth - strTitle[i].Length) / 2, Console.CursorTop);
+                        Console.Write(strTitle[i]);
+                    }
+
                     if (frenchMenu.changeLanguage)
                     {
                         chrLanguage = 'e';
@@ -214,6 +233,7 @@ namespace SpicyConso
                 Compteur = 5;
                 ennemyList.Clear();
                 ammoList.Clear();
+                Thread.Sleep(3000);
                 Console.ReadKey();
                 Console.Clear();
             }

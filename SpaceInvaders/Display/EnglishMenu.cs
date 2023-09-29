@@ -8,34 +8,71 @@ namespace Model
 {
     public class EnglishMenu
     {
-        private string[] option =
+        private string[] Action =
         {
-            "\t\t\t\t1.\tStart",
-            "\t\t\t\t2.\tOption",
-            "\t\t\t\t3.\tHighScores",
-            "\t\t\t\t4.\tlockerrom",
-            "\t\t\t\t5.\tLeave"
+            "1. Start",
+            "2. Option",
+            "3. HighScores",
+            "4. lockerrom",
+            "5. Leave"
         };
 
-        private string Title = "   ____        _   _             \r\n  / __ \\      | | (_)            \r\n | |  | |_ __ | |_ _  ___  _ __  \r\n | |  | | '_ \\| __| |/ _ \\| '_ \\ \r\n | |__| | |_) | |_| | (_) | | | |\r\n  \\____/| .__/ \\__|_|\\___/|_| |_|\r\n        | |                      \r\n        |_|                      ";
-        private string LostTitle = " __     __           _                    \r\n \\ \\   / /          | |                   \r\n  \\ \\_/ /__  _   _  | |     ___  ___  ___ \r\n   \\   / _ \\| | | | | |    / _ \\/ __|/ _ \\\r\n    | | (_) | |_| | | |___| (_) \\__ \\  __/\r\n    |_|\\___/ \\__,_| |______\\___/|___/\\___|\r\n                                          \r\n                                          ";
-        private string WinTitle = " __     __          __          ___       \r\n \\ \\   / /          \\ \\        / (_)      \r\n  \\ \\_/ /__  _   _   \\ \\  /\\  / / _ _ __  \r\n   \\   / _ \\| | | |   \\ \\/  \\/ / | | '_ \\ \r\n    | | (_) | |_| |    \\  /\\  /  | | | | |\r\n    |_|\\___/ \\__,_|     \\/  \\/   |_|_| |_|\r\n                                          \r\n                                          ";
+        private string[] tab_optionTitle =
+        {
+            "   ____        _   _             \r\n",
+            "  / __ \\      | | (_)            \r\n",
+            " | |  | |_ __ | |_ _  ___  _ __  \r\n",
+            " | |  | | '_ \\| __| |/ _ \\| '_ \\ \r\n",
+            " | |__| | |_) | |_| | (_) | | | |\r\n",
+            "  \\____/| .__/ \\__|_|\\___/|_| |_|\r\n",
+            "        | |                      \r\n",
+            "      |_|                      "
+        };
+
+        private string[] tab_LostTitle =
+        {
+            " __     __           _                    \r\n",
+            " \\ \\   / /          | |                   \r\n",
+            "  \\ \\_/ /__  _   _  | |     ___  ___  ___ \r\n",
+            "   \\   / _ \\| | | | | |    / _ \\/ __|/ _ \\\r\n",
+            "    | | (_) | |_| | | |___| (_) \\__ \\  __/\r\n",
+            "    |_|\\___/ \\__,_| |______\\___/|___/\\___|\r\n",
+            "                                          \r\n",
+            "                                          "
+        };
+
+        private string[] tab_WinTitle =
+        {
+            " __     __          __          ___       \r\n",
+            " \\ \\   / /          \\ \\        / (_)      \r\n",
+            "  \\ \\_/ /__  _   _   \\ \\  /\\  / / _ _ __  \r\n",
+            "   \\   / _ \\| | | |   \\ \\/  \\/ / | | '_ \\ \r\n",
+            "    | | (_) | |_| |    \\  /\\  /  | | | | |\r\n",
+            "    |_|\\___/ \\__,_|     \\/  \\/   |_|_| |_|\r\n",
+            "                                          \r\n",
+            "                                          "
+        };
 
         public bool changeLanguage = false;
         private char chrLanguage;
 
         public void ShowMenu()
         {
-            for (int i = 0; i < option.Length; i++)
+            for (int i = 0; i < Action.Length; i++)
             {
-                Console.WriteLine(option[i]);
+                Console.SetCursorPosition((Console.WindowWidth - Action[i].Length) / 2, Console.CursorTop);
+                Console.WriteLine(Action[i]);
             }
         }
 
         public void OptionMenu()
         {
             Console.Clear();
-            Console.WriteLine(Title + "\n");
+            for (int i = 0; i < tab_optionTitle.Length; i++)
+            {
+                Console.SetCursorPosition((Console.WindowWidth - tab_optionTitle[i].Length) / 2, Console.CursorTop);
+                Console.Write(tab_optionTitle[i]);
+            }
 
             Console.WriteLine("\tEdit the language :\n");
             Console.WriteLine("\t\t1. Français");
@@ -51,7 +88,11 @@ namespace Model
         public void LoseMenu()
         {
             Console.Clear();
-            Console.WriteLine(LostTitle + "\n");
+            for (int i = 0; i < tab_LostTitle.Length; i++)
+            {
+                Console.SetCursorPosition((Console.WindowWidth - tab_LostTitle[i].Length) / 2, Console.CursorTop);
+                Console.Write(tab_LostTitle[i]);
+            }
 
             Console.WriteLine("\tPress a key to return to the main menu :\n");
         }
@@ -59,7 +100,11 @@ namespace Model
         public void WinMenu()
         {
             Console.Clear();
-            Console.WriteLine(WinTitle + "\n");
+            for (int i = 0; i < tab_WinTitle.Length; i++)
+            {
+                Console.SetCursorPosition((Console.WindowWidth - tab_WinTitle[i].Length) / 2, Console.CursorTop);
+                Console.Write(tab_WinTitle[i]);
+            }
 
             Console.WriteLine("\tPress a key to return to the main menu :\n");
         }
