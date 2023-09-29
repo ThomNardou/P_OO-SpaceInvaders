@@ -15,8 +15,6 @@ namespace Model
             set => _xPos = value;
         }
 
-        
-
         public int _yPos;
         public int _score = 0;
 
@@ -30,7 +28,7 @@ namespace Model
             this.color = color;
         }
 
-        public void updateXRight()
+        public void UpdateXRight()
         {
             if (_xPos < Config.SCREEN_WIDTH - 9)
             {
@@ -38,7 +36,7 @@ namespace Model
             }  
         }
 
-        public void updateXLeft()
+        public void UpdateXLeft()
         {
             if (_xPos > 6)
             {

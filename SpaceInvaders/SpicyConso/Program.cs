@@ -32,10 +32,10 @@ namespace SpicyConso
             char chrChoice;
 
             int yPosStart = 5;
-            bool firstLoop = true;
             int intTempEnemyNb;
             int compteurAmmo = 50;
 
+            bool firstLoop = true;
             bool samePosition = false;
 
             const int MODEL_WIDTH = Model.Config.SCREEN_WIDTH;
@@ -168,7 +168,7 @@ namespace SpicyConso
                         }
                     }
 
-                    PlayGround.showPlayer(player);
+                    PlayGround.ShowPlayer(player);
 
                     if (Console.KeyAvailable)
                     {
@@ -184,24 +184,24 @@ namespace SpicyConso
                                 }
                                 break;
                             case ConsoleKey.D:
-                                player.updateXRight();
+                                player.UpdateXRight();
                                 break;
                             case ConsoleKey.A:
-                                player.updateXLeft();
+                                player.UpdateXLeft();
                                 break;
                         }
                     }
 
                     foreach (Ennemy enneShow in ennemyList)
                     {
-                        PlayGround.showEnnemy(enneShow);
+                        PlayGround.ShowEnnemy(enneShow);
                     }
 
                     if ((ennemyList.Last().xPos >= MODEL_WIDTH - 10 && !ennemyList.Last().goingLeft) || (ennemyList.First().xPos <= 5 && ennemyList.First().goingLeft))
                     {
                         foreach (Ennemy enneUpdate in ennemyList)
                         {
-                            enneUpdate.updateEnnemyY();
+                            enneUpdate.UpdateEnnemyY();
                             if (ennemyList.First().xPos <= 5)
                             {
                                 enneUpdate.goingLeft = false;
@@ -217,7 +217,7 @@ namespace SpicyConso
                     {
                         foreach (Ennemy enneUpdate in ennemyList)
                         {
-                            enneUpdate.updateEnnemyX();
+                            enneUpdate.UpdateEnnemyX();
                         }
                     }
 
@@ -227,7 +227,7 @@ namespace SpicyConso
 
                     if (ammoList.Count() > 0 && ennemyList.Count() > 0)
                     {
-                        ammoList.First().killsEnnemy(ennemyList, ammoList, player);
+                        ammoList.First().KillsEnnemy(ennemyList, ammoList, player);
                     }
 
 

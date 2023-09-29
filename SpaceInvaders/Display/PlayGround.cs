@@ -32,7 +32,7 @@ namespace Display
             Console.Title = "SpaceInvaders.exe";
         }
 
-        static public void showPlayer(Player player)
+        static public void ShowPlayer(Player player)
         {
             Console.ForegroundColor = player.color;
             Console.SetCursorPosition(player.XPos, player._yPos);
@@ -43,7 +43,7 @@ namespace Display
             }
         }
 
-        static public void showEnnemy(Ennemy ennemy)
+        static public void ShowEnnemy(Ennemy ennemy)
         {
             Console.ForegroundColor = ennemy._color;
             Console.SetCursorPosition(ennemy.xPos, ennemy.yPos);

@@ -30,7 +30,7 @@ namespace Model
 
         
 
-        public void updateEnnemyX()
+        public void UpdateEnnemyX()
         {
             if (goingLeft)
             {
@@ -42,7 +42,7 @@ namespace Model
             }
         }
 
-        public void updateEnnemyY()
+        public void UpdateEnnemyY()
         {
             this.yPos += 2;
         }

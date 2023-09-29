@@ -28,7 +28,7 @@ namespace Model
             yPos -= 2;
         }
 
-        public void killsEnnemy(List<Ennemy> ennemyList, List<Ammo> ammoList, Player player)
+        public void KillsEnnemy(List<Ennemy> ennemyList, List<Ammo> ammoList, Player player)
         {
             for (int i = 0; i < ennemyList.Count(); i++)
             {
