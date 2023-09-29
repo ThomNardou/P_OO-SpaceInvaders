@@ -8,13 +8,21 @@ namespace Model
 {
     public class FrenchMenu
     {
-        private string[] option =
+        private string[] optionChoseLobby =
         {
-            "1.\tJouer",
-            "2.\tOption",
-            "3.\tRecords",
-            "4.\tVestiaire",
-            "5.\tQuitter"
+            "1. Jouer",
+            "2. Option",
+            "3. Records",
+            "4. Vestiaire",
+            "5. Quitter"
+        };
+
+        private string[] optionChose =
+        {
+             "modifier la langue :",
+             "1. Français",
+             "2. English",
+             "3. Retour",
         };
 
         private string[] tab_optionTitle =
@@ -53,14 +61,17 @@ namespace Model
             "                           |___/       |___/            "
         };
 
+        private const string GO_BACK_LOBBY_MESSAGE = "Appyer sur une touche pour retourner au menu principal :";
+
         public bool changeLanguage = false;
         private char chrLanguage;
 
         public void ShowMenu()
         {
-            for (int i = 0; i < option.Length; i++)
+            for (int i = 0; i < optionChoseLobby.Length; i++)
             {
-                Console.WriteLine(option[i]);
+                Console.SetCursorPosition(Config.SCREEN_WIDTH / 2 - 8, 10 + i);
+                Console.WriteLine(optionChoseLobby[i]);
             }
         }
 
@@ -73,12 +84,21 @@ namespace Model
                 Console.Write(tab_optionTitle[i]);
             }
 
-            Console.WriteLine("\tmodifier la langue :\n");
-            Console.WriteLine("\t\t1. Français");
-            Console.WriteLine("\t\t2. English\n");
-            Console.WriteLine("\t\t3. Retour");
+            for (int i = 0; i < optionChose.Length; i++)
+            {
+                if (i == 0)
+                {
+                    Console.SetCursorPosition(Config.SCREEN_WIDTH / 2 - 8, 10 + i);
+                }
+                else
+                {
+                    Console.SetCursorPosition(Config.SCREEN_WIDTH / 2 - 8, 10 + i + 1);
+                }
 
-           chrLanguage = Console.ReadKey(true).KeyChar;
+                Console.WriteLine(optionChose[i]);
+            }
+
+            chrLanguage = Console.ReadKey(true).KeyChar;
 
             if (chrLanguage == '2')
                 changeLanguage = true;
@@ -94,7 +114,8 @@ namespace Model
                 Console.Write(tab_LostTitle[i]);
             }
 
-            Console.WriteLine("\tAppyer sur une touche pour retourner au menu principal :\n");
+            Console.SetCursorPosition((Config.SCREEN_WIDTH - GO_BACK_LOBBY_MESSAGE.Length) / 2, 10);
+            Console.WriteLine(GO_BACK_LOBBY_MESSAGE);
         }
 
         public void WinMenu()
@@ -106,7 +127,8 @@ namespace Model
                 Console.Write(tab_WinTitle[i]);
             }
 
-            Console.WriteLine("\tAppyer sur une touche pour retourner au menu principal :\n");
+            Console.SetCursorPosition((Config.SCREEN_WIDTH - GO_BACK_LOBBY_MESSAGE.Length) / 2, 10);
+            Console.WriteLine(GO_BACK_LOBBY_MESSAGE);
         }
     }
 }

@@ -8,13 +8,24 @@ namespace Model
 {
     public class EnglishMenu
     {
-        private string[] Action =
+
+        private const string GO_BACK_LOBBY_MESSAGE = "Press a key to return to the main menu :";
+
+        private string[] optionChoseLobby =
         {
             "1. Start",
             "2. Option",
             "3. HighScores",
             "4. lockerrom",
             "5. Leave"
+        };
+
+        private string[] optionChose =
+        {
+             "Edit the language :",
+             "\t1. Français",
+             "\t2. English",
+             "\t3. back",
         };
 
         private string[] tab_optionTitle =
@@ -58,10 +69,10 @@ namespace Model
 
         public void ShowMenu()
         {
-            for (int i = 0; i < Action.Length; i++)
+            for (int i = 0; i < optionChoseLobby.Length; i++)
             {
-                Console.SetCursorPosition((Console.WindowWidth - Action[i].Length) / 2, Console.CursorTop);
-                Console.WriteLine(Action[i]);
+                Console.SetCursorPosition(Config.SCREEN_WIDTH / 2 - 8, 10 + i);
+                Console.WriteLine(optionChoseLobby[i]);
             }
         }
 
@@ -74,10 +85,19 @@ namespace Model
                 Console.Write(tab_optionTitle[i]);
             }
 
-            Console.WriteLine("\tEdit the language :\n");
-            Console.WriteLine("\t\t1. Français");
-            Console.WriteLine("\t\t2. English\n");
-            Console.WriteLine("\t\t3. back");
+            for (int i = 0; i < optionChose.Length; i++)
+            {
+                if (i == 0)
+                {
+                    Console.SetCursorPosition(Config.SCREEN_WIDTH / 2 - 8, 10 + i);
+                }
+                else
+                {
+                    Console.SetCursorPosition(Config.SCREEN_WIDTH / 2 - 8, 10 + i + 1);
+                }
+
+                Console.WriteLine(optionChose[i]);
+            }
 
             chrLanguage = Console.ReadKey(true).KeyChar;
 
@@ -94,7 +114,8 @@ namespace Model
                 Console.Write(tab_LostTitle[i]);
             }
 
-            Console.WriteLine("\tPress a key to return to the main menu :\n");
+            Console.SetCursorPosition((Config.SCREEN_WIDTH - GO_BACK_LOBBY_MESSAGE.Length) / 2, 10);
+            Console.WriteLine(GO_BACK_LOBBY_MESSAGE);
         }
 
         public void WinMenu()
@@ -106,7 +127,8 @@ namespace Model
                 Console.Write(tab_WinTitle[i]);
             }
 
-            Console.WriteLine("\tPress a key to return to the main menu :\n");
+            Console.SetCursorPosition((Config.SCREEN_WIDTH - GO_BACK_LOBBY_MESSAGE.Length) / 2, 10);
+            Console.WriteLine(GO_BACK_LOBBY_MESSAGE);
         }
     }
 }

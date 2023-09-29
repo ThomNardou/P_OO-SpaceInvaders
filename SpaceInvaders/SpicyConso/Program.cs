@@ -5,7 +5,7 @@ using System.Threading;
 using System.Drawing;
 using Model;
 using Display;
-
+using System.Media;
 
 namespace SpicyConso
 {
@@ -13,9 +13,6 @@ namespace SpicyConso
     {
         static void Main(string[] args)
         {
-
-
-            //string strTitle = "        |_|                                                               ";
 
             string[] strTitle =
             {
@@ -29,14 +26,25 @@ namespace SpicyConso
                 "      |_|                                                               "
             };
 
+            const string CHOSE_DEFAULT_LANGUAGE = "Please select a language (français/English) <f/e> : ";
+
             char chrLanguage;
             char chrChoice;
 
-            int Compteur = 5;
+            int yPosStart = 5;
+            bool firstLoop = true;
+            int intTempEnemyNb;
 
             bool samePosition = false;
 
             const int MODEL_WIDTH = Model.Config.SCREEN_WIDTH;
+            const int MODEL_HEIGHT = Model.Config.SCREEN_HEIGHT;
+
+            SoundPlayer lobbySong = new SoundPlayer(@"LobbySong.wav");
+            SoundPlayer FirstPartSong = new SoundPlayer(@"FirstPartFight.wav");
+            SoundPlayer SecondPartSong = new SoundPlayer(@"SecondPartFight.wav");
+            SoundPlayer WinSong = new SoundPlayer(@"WinSong.wav");
+            SoundPlayer LooseSong = new SoundPlayer(@"LooseSong.wav");
 
             ConsoleKeyInfo keypPressed;
 
@@ -49,7 +57,8 @@ namespace SpicyConso
 
             PlayGround.Init();
 
-            Console.Write("\n\n\tPlease select a language (français/English) <f/e> : ");
+            Console.SetCursorPosition((MODEL_WIDTH - CHOSE_DEFAULT_LANGUAGE.Length) / 2, MODEL_HEIGHT / 2);
+            Console.Write(CHOSE_DEFAULT_LANGUAGE);
             chrLanguage = Console.ReadKey(true).KeyChar;
 
             Console.Clear();
@@ -57,12 +66,17 @@ namespace SpicyConso
             do
             {
 
+                lobbySong.PlayLooping();
+
+
                 for (int i = 0; i < 10; i++)
                 {
-                    ennemyList.Add(new Ennemy(Compteur, 5, ConsoleColor.Cyan));
-                    Compteur += 5;
+                    ennemyList.Add(new Ennemy(yPosStart, 5, ConsoleColor.Cyan));
+                    yPosStart += 5;
                 }
                 Console.WriteLine();
+
+                intTempEnemyNb = ennemyList.Count();
 
                 Console.ForegroundColor = ConsoleColor.White;
                 do
@@ -118,8 +132,21 @@ namespace SpicyConso
                 }
                 while (chrChoice != '1');
 
+                lobbySong.Stop();
+
+                FirstPartSong.PlayLooping();
+
                 do
                 {
+
+                    if (ennemyList.Count <= intTempEnemyNb / 2)
+                    {
+                        if (firstLoop)
+                        {
+                            SecondPartSong.PlayLooping();
+                            firstLoop = false;
+                        }
+                    }
 
                     for (int i = ammoList.Count() - 1; i > 0; i--)
                     {
@@ -207,6 +234,7 @@ namespace SpicyConso
 
                 if (samePosition)
                 {
+                    LooseSong.Play();
                     if (chrLanguage == 'e' || chrLanguage == 'E')
                     {
                         englishMenu.LoseMenu();
@@ -217,8 +245,9 @@ namespace SpicyConso
                     }
                 }
 
-                else 
+                else
                 {
+                    WinSong.Play();
                     if (chrLanguage == 'e' || chrLanguage == 'E')
                     {
                         englishMenu.WinMenu();
@@ -230,7 +259,7 @@ namespace SpicyConso
                 }
 
                 player.xPos = 5;
-                Compteur = 5;
+                yPosStart = 5;
                 ennemyList.Clear();
                 ammoList.Clear();
                 Thread.Sleep(3000);

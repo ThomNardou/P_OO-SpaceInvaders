@@ -26,8 +26,10 @@ namespace Display
         public static void Init()
         {
             Console.SetWindowSize(Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
+            Console.SetBufferSize(Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
             Console.CursorVisible = false;
             Console.ForegroundColor = ConsoleColor.White;
+            Console.Title = "SpaceInvaders.exe";
         }
 
         static public void showPlayer(Player player)
