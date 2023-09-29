@@ -28,7 +28,7 @@ namespace Model
             yPos -= 2;
         }
 
-        public void killsEnnemy(List<Ennemy> ennemyList, List<Ammo> ammoList)
+        public void killsEnnemy(List<Ennemy> ennemyList, List<Ammo> ammoList, Player player)
         {
             for (int i = 0; i < ennemyList.Count(); i++)
             {
@@ -38,6 +38,7 @@ namespace Model
                     if (ennemyList[i].yPos >= ammoList[j].yPos && ennemyList[i].yPos <= ammoList[j].yPos + 1 && ammoList[j].xPos >= ennemyList[i].xPos && ammoList[j].xPos <= ennemyList[i].xPos + 4)
                     {
                         ennemyList.Remove(ennemyList[i]);
+                        player.AddPoint();
                         break;
                     }
                 }

@@ -35,10 +35,10 @@ namespace Display
         static public void showPlayer(Player player)
         {
             Console.ForegroundColor = player.color;
-            Console.SetCursorPosition(player.xPos, player.yPos);
+            Console.SetCursorPosition(player.XPos, player._yPos);
             for (int i = 0; i < _player.Length; i++)
             {
-                Console.SetCursorPosition(player.xPos, player.yPos + i);
+                Console.SetCursorPosition(player.XPos, player._yPos + i);
                 Console.WriteLine(_player[i]);
             }
         }

@@ -8,33 +8,47 @@ namespace Model
 {
     public class Player
     {
-        public int xPos;
-        public int yPos;
+        private int _xPos;
+        public int XPos
+        {
+            get => _xPos;
+            set => _xPos = value;
+        }
+
+        
+
+        public int _yPos;
+        public int _score = 0;
 
         public ConsoleColor color;
         
 
         public Player(int x, int y, ConsoleColor color)
         {
-            this.xPos = x;
-            this.yPos = Config.SCREEN_HEIGHT - y;
+            this._xPos = x;
+            this._yPos = Config.SCREEN_HEIGHT - y;
             this.color = color;
         }
 
         public void updateXRight()
         {
-            if (xPos < Config.SCREEN_WIDTH - 9)
+            if (_xPos < Config.SCREEN_WIDTH - 9)
             {
-                xPos += 2;
+                _xPos += 2;
             }  
         }
 
         public void updateXLeft()
         {
-            if (xPos > 6)
+            if (_xPos > 6)
             {
-                xPos -= 2;
+                _xPos -= 2;
             }
+        }
+
+        public void AddPoint()
+        {
+            _score += 10;
         }
 
 

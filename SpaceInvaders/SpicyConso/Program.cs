@@ -26,7 +26,7 @@ namespace SpicyConso
                 "      |_|                                                               "
             };
 
-            const string CHOSE_DEFAULT_LANGUAGE = "Please select a language (français/English) <f/e> : ";
+            const string CHOSE_DEFAULT_LANGUAGE = "Please select a language (Français/English) <f/e> : ";
 
             char chrLanguage;
             char chrChoice;
@@ -34,6 +34,7 @@ namespace SpicyConso
             int yPosStart = 5;
             bool firstLoop = true;
             int intTempEnemyNb;
+            int compteurAmmo = 50;
 
             bool samePosition = false;
 
@@ -65,9 +66,7 @@ namespace SpicyConso
 
             do
             {
-
                 lobbySong.PlayLooping();
-
 
                 for (int i = 0; i < 10; i++)
                 {
@@ -138,6 +137,14 @@ namespace SpicyConso
 
                 do
                 {
+                    Console.SetCursorPosition(0, 0);
+                    Console.WriteLine($"Score : {player._score}");
+
+                    Console.SetCursorPosition(0, 1);
+                    if (chrLanguage == 'f' || chrLanguage == 'F')
+                        Console.WriteLine($"Munition : {compteurAmmo}");
+                    else
+                        Console.WriteLine($"Ammo : {compteurAmmo}");
 
                     if (ennemyList.Count <= intTempEnemyNb / 2)
                     {
@@ -170,7 +177,11 @@ namespace SpicyConso
                         switch (keypPressed.Key)
                         {
                             case ConsoleKey.Spacebar:
-                                ammoList.Add(new Ammo(player.xPos, player.yPos, ConsoleColor.Blue));
+                                if (compteurAmmo > 0)
+                                {
+                                    ammoList.Add(new Ammo(player.XPos, player._yPos, ConsoleColor.Blue));
+                                    compteurAmmo--;
+                                }
                                 break;
                             case ConsoleKey.D:
                                 player.updateXRight();
@@ -180,7 +191,6 @@ namespace SpicyConso
                                 break;
                         }
                     }
-
 
                     foreach (Ennemy enneShow in ennemyList)
                     {
@@ -217,22 +227,22 @@ namespace SpicyConso
 
                     if (ammoList.Count() > 0 && ennemyList.Count() > 0)
                     {
-                        ammoList.First().killsEnnemy(ennemyList, ammoList);
+                        ammoList.First().killsEnnemy(ennemyList, ammoList, player);
                     }
 
 
                     for (int i = 0; i < ennemyList.Count(); i++)
                     {
-                        samePosition = checkPosition(player, ennemyList);
+                        samePosition = CheckPosition(player, ennemyList);
                     }
 
                 }
-                while (!samePosition && ennemyList.Count() > 0);
+                while (!samePosition && ennemyList.Count() > 0 && compteurAmmo > 0);
 
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Clear();
 
-                if (samePosition)
+                if (samePosition || compteurAmmo <= 0)
                 {
                     LooseSong.Play();
                     if (chrLanguage == 'e' || chrLanguage == 'E')
@@ -243,6 +253,9 @@ namespace SpicyConso
                     {
                         frenchMenu.LoseMenu();
                     }
+
+                    compteurAmmo = 50;
+                    player._score = 0;
                 }
 
                 else
@@ -258,13 +271,15 @@ namespace SpicyConso
                     }
                 }
 
-                player.xPos = 5;
+                player.XPos = 5;
                 yPosStart = 5;
                 ennemyList.Clear();
                 ammoList.Clear();
+
                 Thread.Sleep(3000);
                 Console.ReadKey();
                 Console.Clear();
+                
             }
             while (true);
         }
@@ -274,14 +289,13 @@ namespace SpicyConso
             Environment.Exit(0);
         }
 
-        static bool checkPosition(Player player, List<Ennemy> ennList)
+        static bool CheckPosition(Player player, List<Ennemy> ennList)
         {
             if (ennList != null)
             {
-                if (player.yPos == ennList.First().yPos)
+                if (player._yPos == ennList.First().yPos)
                 {
                     return true;
-
                 }
             }
             return false;

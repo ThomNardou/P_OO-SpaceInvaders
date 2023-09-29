@@ -12,6 +12,7 @@ namespace Model
 
         public int xPos;
         public int yPos;
+        public int speed = 1;
 
         public bool goingLeft = false;
 
@@ -33,11 +34,11 @@ namespace Model
         {
             if (goingLeft)
             {
-                this.xPos-=3;
+                this.xPos-=speed;
             }
             else
             {
-                this.xPos+=3;
+                this.xPos+=speed;
             }
         }
 
