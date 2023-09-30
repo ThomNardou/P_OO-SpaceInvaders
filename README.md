@@ -3,7 +3,7 @@
 
 ## Description
 
-Space Invader in C# is a modern reinterpretation of the famous classic arcade game. This project was created as part of an apprenticeship in C# and game programming. The game features invading alien ships, an Earth spaceship and old-fashioned Earth defense.
+Space Invader in C# is a reinterpretation of the famous classic arcade game. This project was created as part of an apprenticeship in C# and game programming. The game features invading alien ships, an Earth spaceship and old-fashioned Earth defense.
 
 ## Main features
 
@@ -11,7 +11,7 @@ Space Invader in C# is a modern reinterpretation of the famous classic arcade ga
 - Alien ships gradually descending towards Earth.
 - An Earth-based spaceship piloted by the player.
 - A scoring system to track your performance.
-
+  
 ## Instructions for use
 
 1. Clone this repository to your local machine.
