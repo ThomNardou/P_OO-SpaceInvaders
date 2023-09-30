@@ -222,7 +222,7 @@ namespace SpicyConso
                     }
 
 
-                    Thread.Sleep(50);
+                    Thread.Sleep(3);
                     Console.Clear();
 
                     if (ammoList.Count() > 0 && ennemyList.Count() > 0)
