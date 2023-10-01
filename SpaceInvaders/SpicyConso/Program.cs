@@ -137,7 +137,7 @@ namespace SpicyConso
                 do
                 {
                     Console.SetCursorPosition(0, 0);
-                    Console.WriteLine($"Score : {player._score}");
+                    Console.WriteLine($"Score : {player.Score}");
 
                     Console.SetCursorPosition(0, 1);
                     if (chrLanguage == 'f' || chrLanguage == 'F')
@@ -156,7 +156,7 @@ namespace SpicyConso
 
                     for (int i = ammoList.Count() - 1; i > 0; i--)
                     {
-                        if (ammoList.ElementAt(i).yPos >= 2)
+                        if (ammoList.ElementAt(i).YPos >= 2)
                         {
                             PlayGround.ShowAmmo(ammoList.ElementAt(i));
                             ammoList.ElementAt(i).Update();
@@ -179,7 +179,7 @@ namespace SpicyConso
                             case ConsoleKey.Spacebar:
                                 if (player.CompteurAmmo > 0)
                                 {
-                                    ammoList.Add(new Ammo(player.XPos, player._yPos, ConsoleColor.Blue));
+                                    ammoList.Add(new Ammo(player.XPos, player.YPos, ConsoleColor.Blue));
                                     
                                 }
                                 break;
@@ -197,18 +197,18 @@ namespace SpicyConso
                         PlayGround.ShowEnnemy(enneShow);
                     }
 
-                    if ((ennemyList.Last().xPos >= MODEL_WIDTH - 10 && !ennemyList.Last().goingLeft) || (ennemyList.First().xPos <= 5 && ennemyList.First().goingLeft))
+                    if ((ennemyList.Last().XPos >= MODEL_WIDTH - 10 && !ennemyList.Last().GoingLeft) || (ennemyList.First().XPos <= 5 && ennemyList.First().GoingLeft))
                     {
                         foreach (Ennemy enneUpdate in ennemyList)
                         {
                             enneUpdate.UpdateEnnemyY();
-                            if (ennemyList.First().xPos <= 5)
+                            if (ennemyList.First().XPos <= 5)
                             {
-                                enneUpdate.goingLeft = false;
+                                enneUpdate.GoingLeft = false;
                             }
-                            else if (ennemyList.Last().xPos >= MODEL_WIDTH - 10)
+                            else if (ennemyList.Last().XPos >= MODEL_WIDTH - 10)
                             {
-                                enneUpdate.goingLeft = true;
+                                enneUpdate.GoingLeft = true;
                             }
                         }
                     }
@@ -255,7 +255,7 @@ namespace SpicyConso
                     }
 
                     player.CompteurAmmo = 50;
-                    player._score = 0;
+                    player.Score = 0;
                 }
 
                 else
@@ -294,7 +294,7 @@ namespace SpicyConso
         {
             if (ennList != null)
             {
-                if (player._yPos == ennList.First().yPos)
+                if (player.YPos == ennList.First().YPos)
                 {
                     return true;
                 }

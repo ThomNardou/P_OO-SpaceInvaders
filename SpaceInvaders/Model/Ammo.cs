@@ -9,23 +9,32 @@ namespace Model
     public class Ammo
     {
 
-        public int xPos;
-        public int yPos;
+        private int _xPos;
+        public int XPos
+        {
+            get => _xPos; 
+            set => _xPos = value;
+        }
 
-        public ConsoleColor color;
+        private int _yPos;
+        public int YPos
+        {
+            get => _yPos; 
+            set => _yPos = value;
+        }
 
-
+        public ConsoleColor _color;
 
         public Ammo(int xPos, int yPos, ConsoleColor color)
         {
-            this.xPos = xPos;
-            this.yPos = yPos;
-            this.color = color;
+            this._xPos = xPos;
+            this._yPos = yPos;
+            this._color = color;
         }
 
         public void Update()
         {
-            yPos -= 2;
+            _yPos -= 2;
         }
 
         public void KillsEnnemy(List<Ennemy> ennemyList, List<Ammo> ammoList, Player player)
@@ -35,7 +44,7 @@ namespace Model
 
                 for (int j = 0; j < ammoList.Count(); j++)
                 {
-                    if (ennemyList[i].yPos >= ammoList[j].yPos && ennemyList[i].yPos <= ammoList[j].yPos + 1 && ammoList[j].xPos >= ennemyList[i].xPos && ammoList[j].xPos <= ennemyList[i].xPos + 4)
+                    if (ennemyList[i].YPos >= ammoList[j]._yPos && ennemyList[i].YPos <= ammoList[j]._yPos + 1 && ammoList[j]._xPos >= ennemyList[i].XPos && ammoList[j]._xPos <= ennemyList[i].XPos + 4)
                     {
                         ennemyList.Remove(ennemyList[i]);
                         player.AddPoint();

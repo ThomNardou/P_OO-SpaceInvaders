@@ -10,41 +10,58 @@ namespace Model
     public class Ennemy
     {
 
-        public int xPos;
-        public int yPos;
-        public int speed = 1;
+        private int _xPos;
+        public int XPos
+        {
+            get=>_xPos; 
+            set => _xPos = value;
+        }
 
-        public bool goingLeft = false;
+        private int _yPos;
+        public int YPos
+        {
+            get => _yPos; 
+            set => _yPos = value;
+        }
+
+        private int _speed = 1;
+        public int Speed
+        {
+            get => _speed;
+            set => _speed = value;
+        }
+
+        private bool _goingLeft = false;
+        public bool GoingLeft
+        {
+            get => _goingLeft; 
+            set => _goingLeft = value;
+        }
 
         public ConsoleColor _color;
 
-        
-
         public Ennemy (int x, int y, ConsoleColor color)
         {
-            this.xPos = x;
-            this.yPos = y;
+            this._xPos = x;
+            this._yPos = y;
             this._color = color;
         }
 
-
-        
-
         public void UpdateEnnemyX()
         {
-            if (goingLeft)
+            if (_goingLeft)
             {
-                this.xPos-=speed;
+                this._xPos-=_speed;
             }
             else
             {
-                this.xPos+=speed;
+                this._xPos+=_speed;
             }
         }
 
         public void UpdateEnnemyY()
         {
-            this.yPos += 2;
+            this._yPos += 2;
         }
 
         

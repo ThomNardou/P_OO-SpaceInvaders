@@ -35,10 +35,10 @@ namespace Display
         static public void ShowPlayer(Player player)
         {
             Console.ForegroundColor = player.color;
-            Console.SetCursorPosition(player.XPos, player._yPos);
+            Console.SetCursorPosition(player.XPos, player.YPos);
             for (int i = 0; i < _player.Length; i++)
             {
-                Console.SetCursorPosition(player.XPos, player._yPos + i);
+                Console.SetCursorPosition(player.XPos, player.YPos + i);
                 Console.WriteLine(_player[i]);
             }
         }
@@ -46,21 +46,21 @@ namespace Display
         static public void ShowEnnemy(Ennemy ennemy)
         {
             Console.ForegroundColor = ennemy._color;
-            Console.SetCursorPosition(ennemy.xPos, ennemy.yPos);
+            Console.SetCursorPosition(ennemy.XPos, ennemy.YPos);
             for (int i = 0; i < _enemy.Length; i++)
             {
-                Console.SetCursorPosition(ennemy.xPos, ennemy.yPos + i);
+                Console.SetCursorPosition(ennemy.XPos, ennemy.YPos + i);
                 Console.WriteLine(_enemy[i]);
             }
         }
 
         static public void ShowAmmo(Ammo ammo)
         {
-            Console.ForegroundColor = ammo.color;
-            Console.SetCursorPosition(ammo.xPos, ammo.yPos);
+            Console.ForegroundColor = ammo._color;
+            Console.SetCursorPosition(ammo.XPos, ammo.YPos);
             for (int i = 0; i < view.Length; i++)
             {
-                Console.SetCursorPosition(ammo.xPos, ammo.yPos + i);
+                Console.SetCursorPosition(ammo.XPos, ammo.YPos + i);
                 Console.WriteLine(view[i]);
             }
         }
