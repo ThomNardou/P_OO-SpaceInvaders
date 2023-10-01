@@ -39,6 +39,7 @@ namespace Model
                     {
                         ennemyList.Remove(ennemyList[i]);
                         player.AddPoint();
+                        player.CompteurAmmo += 3;
                         break;
                     }
                 }

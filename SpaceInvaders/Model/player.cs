@@ -18,6 +18,13 @@ namespace Model
         public int _yPos;
         public int _score = 0;
 
+        private int compteurAmmo = 50;
+        public int CompteurAmmo
+        {
+            get => compteurAmmo;
+            set => compteurAmmo = value;
+        }
+
         public ConsoleColor color;
         
 
