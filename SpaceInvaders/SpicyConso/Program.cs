@@ -36,6 +36,7 @@ namespace SpicyConso
 
             bool firstLoop = true;
             bool samePosition = false;
+            bool winGame = false;
 
             const int MODEL_WIDTH = Model.Config.SCREEN_WIDTH;
             const int MODEL_HEIGHT = Model.Config.SCREEN_HEIGHT;
@@ -72,7 +73,14 @@ namespace SpicyConso
                     ennemyList.Add(new Ennemy(yPosStart, 5, ConsoleColor.Cyan));
                     yPosStart += 5;
                 }
-                Console.WriteLine();
+                if (winGame)
+                {
+                    foreach (Ennemy enn in ennemyList)
+                    {
+                        enn.Speed++;
+                    }
+                    winGame = false;
+                }
 
                 intTempEnemyNb = ennemyList.Count();
 
@@ -221,7 +229,7 @@ namespace SpicyConso
                         }
                     }
 
-                    Thread.Sleep(30);
+                    Thread.Sleep(50);
                     Console.Clear();
 
 
@@ -269,6 +277,7 @@ namespace SpicyConso
                     {
                         frenchMenu.WinMenu();
                     }
+                    winGame = true;       
                 }
 
                 player.XPos = 5;

@@ -47,8 +47,9 @@ namespace Model
                     if (ennemyList[i].YPos >= ammoList[j]._yPos && ennemyList[i].YPos <= ammoList[j]._yPos + 1 && ammoList[j]._xPos >= ennemyList[i].XPos && ammoList[j]._xPos <= ennemyList[i].XPos + 4)
                     {
                         ennemyList.Remove(ennemyList[i]);
+                        ammoList.Remove(ammoList[j]);
                         player.AddPoint();
-                        player.CompteurAmmo += 3;
+                        player.CompteurAmmo += 2;
                         break;
                     }
                 }
