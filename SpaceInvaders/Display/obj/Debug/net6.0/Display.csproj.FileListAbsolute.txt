@@ -58,3 +58,5 @@ E:\GitHub\P_OO-SpaceInvaders\SpaceInvaders\Display\obj\Debug\net6.0\Display.dll
 E:\GitHub\P_OO-SpaceInvaders\SpaceInvaders\Display\obj\Debug\net6.0\refint\Display.dll
 E:\GitHub\P_OO-SpaceInvaders\SpaceInvaders\Display\obj\Debug\net6.0\Display.pdb
 E:\GitHub\P_OO-SpaceInvaders\SpaceInvaders\Display\obj\Debug\net6.0\ref\Display.dll
+C:\Users\pk88yte\Documents\GitHub\P_OO-SpaceInvaders\SpaceInvaders\Display\bin\Debug\net6.0\Storage.dll
+C:\Users\pk88yte\Documents\GitHub\P_OO-SpaceInvaders\SpaceInvaders\Display\bin\Debug\net6.0\Storage.pdb

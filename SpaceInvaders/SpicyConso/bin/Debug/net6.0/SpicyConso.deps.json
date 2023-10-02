@@ -343,7 +343,8 @@
       },
       "Display/1.0.0": {
         "dependencies": {
-          "Model": "1.0.0"
+          "Model": "1.0.0",
+          "Storage": "1.0.0"
         },
         "runtime": {
           "Display.dll": {}

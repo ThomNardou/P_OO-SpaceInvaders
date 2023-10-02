@@ -1,20 +1,34 @@
 docker exec -i {id databse} mysql -uroot -proot < {sql file}.sql
 
-CREATE ROLE 'admin';
-CREATE ROLE 'player';
-CREATE ROLE 'shopKeeper';
+CREATE ROLE 'r_admin';
+CREATE ROLE 'r_player';
+CREATE ROLE 'r_shopKeeper';
+
+-- Création des utilisateur
+CREATE USER 'Bob'@'localhost' IDENTIFIED BY 'password';
+CREATE USER 'Alice'@'localhost' IDENTIFIED BY 'password';
+CREATE USER 'Michel'@'localhost' IDENTIFIED BY 'password';
+
+-- Assignation des rôle
+GRANT ROLE 'r_admin' TO 'Bob'@'localhost';
+GRANT ROLE 'r_player' TO 'Alice'@'localhost';
+GRANT ROLE 'r_shopKeeper' TO 'Michel'@'localhost';
 
 --b.1
-GRANT ALL PRIVILEGES ON db_space_invaders.* TO 'admin' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON db_space_invaders.* TO 'r_admin' WITH GRANT OPTION;
 
 --b.2
-GRANT SELECT ON db_space_invaders.t_arme TO 'player';
-GRANT CREATE, SELECT ON db_space_invaders.t_commande TO 'player';
+GRANT SELECT ON db_space_invaders.t_arme TO 'r_player';
+GRANT INSERT, SELECT ON db_space_invaders.t_commande TO 'r_player';
 
 --b.3
-GRANT SELECT ON db_space_invaders.t_commande TO 'shopKeeper';
-GRANT SELECT ON db_space_invaders.t_joueur TO 'shopKeeper';
-GRANT UPDATE, SELECT, DELETE ON db_space_invaders.t_arme TO 'shopKeeper';
+GRANT SELECT ON db_space_invaders.t_commande TO 'r_shopKeeper';
+GRANT SELECT ON db_space_invaders.t_joueur TO 'r_shopKeeper';
+GRANT ALTER, SELECT, DELETE ON db_space_invaders.t_arme TO 'r_shopKeeper';
+
+
+
+
 
 --C.1 
 SELECT `jouPseudo`, jouNombrePoints FROM t_joueur ORDER BY `jouNombrePoints` DESC;

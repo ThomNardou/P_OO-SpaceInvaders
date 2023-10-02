@@ -5,6 +5,7 @@ using System.Threading;
 using System.Drawing;
 using Model;
 using Display;
+using Storage;
 using System.Media;
 
 namespace SpicyConso
@@ -54,6 +55,7 @@ namespace SpicyConso
 
             FrenchMenu frenchMenu = new FrenchMenu();
             EnglishMenu englishMenu = new EnglishMenu();
+            Store store = new Store();
             Player player = new Player(5, 5, ConsoleColor.DarkGreen);
 
             PlayGround.Init();
@@ -115,9 +117,12 @@ namespace SpicyConso
                         {
                             frenchMenu.OptionMenu();
                         }
-                        else if (chrChoice == '5')
+                        else if (chrChoice == '3')
+                        {
+                            frenchMenu.HighScore(store);
+                        }
+                        else
                             ExitGame();
-
                     }
                     else
                     {
