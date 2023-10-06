@@ -8,6 +8,14 @@ namespace Model
 {
     public class Player
     {
+
+        private string _pseudo;
+        public string Pseudo
+        {
+            get => _pseudo;
+            set => _pseudo = value;
+        }
+
         private int _xPos;
         public int XPos
         {
@@ -37,13 +45,12 @@ namespace Model
         }
 
         public ConsoleColor color;
-        
-
-        public Player(int x, int y, ConsoleColor color)
+        public Player(int x, int y, ConsoleColor color, string pseudo)
         {
             this._xPos = x;
             this._yPos = Config.SCREEN_HEIGHT - y;
             this.color = color;
+            _pseudo = pseudo;
         }
 
         public void UpdateXRight()

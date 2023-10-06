@@ -32,6 +32,8 @@ namespace SpicyConso
             char chrLanguage;
             char chrChoice;
 
+            string pseudo = "player1";
+
             int yPosStart = 5;
             int intTempEnemyNb;
 
@@ -56,7 +58,7 @@ namespace SpicyConso
             FrenchMenu frenchMenu = new FrenchMenu();
             EnglishMenu englishMenu = new EnglishMenu();
             Store store = new Store();
-            Player player = new Player(5, 5, ConsoleColor.DarkGreen);
+            Player player = new Player(5, 5, ConsoleColor.DarkGreen, pseudo);
 
             PlayGround.Init();
 
@@ -121,8 +123,6 @@ namespace SpicyConso
                         {
                             frenchMenu.HighScore(store);
                         }
-                        else
-                            ExitGame();
                     }
                     else
                     {
@@ -135,9 +135,12 @@ namespace SpicyConso
                             englishMenu.OptionMenu();
 
                         }
-                        else if (chrChoice == '5')
-                            ExitGame();
+                        else if (chrChoice == '3')
+                            break;
                     }
+
+                    if (chrChoice == '5')
+                        ExitGame();
 
                     Console.Clear();
                 }
