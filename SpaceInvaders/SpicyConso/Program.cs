@@ -89,10 +89,11 @@ namespace SpicyConso
                 {
                     foreach (Ennemy enn in ennemyList)
                     {
-                        if (enn.Speed >= 3)
+                        if (enn.Speed >= 0)
                         {
-                            enn.Speed -= 1;
+                            enn.Speed -= 5;
                         }
+                        enn.IncrementX += 2;
                     }
                     winGame = false;
                 }
@@ -258,7 +259,7 @@ namespace SpicyConso
 
 
                     frameNumber++;
-                    Thread.Sleep(3);
+                    Thread.Sleep(1);
                     Console.Clear();
 
 
@@ -308,6 +309,7 @@ namespace SpicyConso
                     {
                         frenchMenu.WinMenu();
                     }
+
                     winGame = true;       
                 }
 

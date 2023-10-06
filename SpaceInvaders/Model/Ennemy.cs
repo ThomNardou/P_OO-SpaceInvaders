@@ -24,8 +24,8 @@ namespace Model
             set => _yPos = value;
         }
 
-        private int _speed = 10;
-        public int Speed
+        private uint _speed = 10;
+        public uint Speed
         {
             get => _speed;
             set => _speed = value;
