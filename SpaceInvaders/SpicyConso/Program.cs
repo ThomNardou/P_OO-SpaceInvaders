@@ -7,6 +7,7 @@ using Model;
 using Display;
 using Storage;
 using System.Media;
+using System.Diagnostics;
 
 namespace SpicyConso
 {
@@ -27,28 +28,22 @@ namespace SpicyConso
                 "      |_|                                                               "
             };
 
-            const string CHOSE_DEFAULT_LANGUAGE = "Please select a language (Français/English) <f/e> : ";
+            
 
             char chrLanguage;
             char chrChoice;
 
-            string pseudo = "player1";
+            string pseudo;
 
             int yPosStart = 5;
             int intTempEnemyNb;
+            int frameNumber = 0;
 
             bool firstLoop = true;
             bool samePosition = false;
             bool winGame = false;
 
             const int MODEL_WIDTH = Model.Config.SCREEN_WIDTH;
-            const int MODEL_HEIGHT = Model.Config.SCREEN_HEIGHT;
-
-            SoundPlayer lobbySong = new SoundPlayer(@"LobbySong.wav");
-            SoundPlayer FirstPartSong = new SoundPlayer(@"FirstPartFight.wav");
-            SoundPlayer SecondPartSong = new SoundPlayer(@"SecondPartFight.wav");
-            SoundPlayer WinSong = new SoundPlayer(@"WinSong.wav");
-            SoundPlayer LooseSong = new SoundPlayer(@"LooseSong.wav");
 
             ConsoleKeyInfo keypPressed;
 
@@ -58,33 +53,57 @@ namespace SpicyConso
             FrenchMenu frenchMenu = new FrenchMenu();
             EnglishMenu englishMenu = new EnglishMenu();
             Store store = new Store();
-            Player player = new Player(5, 5, ConsoleColor.DarkGreen, pseudo);
 
             PlayGround.Init();
 
-            Console.SetCursorPosition((MODEL_WIDTH - CHOSE_DEFAULT_LANGUAGE.Length) / 2, MODEL_HEIGHT / 2 - 1);
-            Console.Write(CHOSE_DEFAULT_LANGUAGE);
-            chrLanguage = Console.ReadKey(true).KeyChar;
+            chrLanguage = PlayGround.ChoseLanguage();
+            pseudo = PlayGround.ChosePlayerName(chrLanguage);
+
+            if (string.IsNullOrEmpty(pseudo))
+            {
+                pseudo = "player";
+            }
+
+            if (chrLanguage != 'f' || chrLanguage != 'F' || chrLanguage != 'e' || chrLanguage != 'E')
+                chrLanguage = 'f';
+
+            Debug.Write(pseudo);
+
+            Console.Clear();
+
+            Player player = new Player(5, 5, ConsoleColor.DarkGreen, pseudo);
 
             Console.Clear();
 
             do
             {
-                lobbySong.PlayLooping();
+                PlayGround.lobbySong.PlayLooping();
 
                 for (int i = 0; i < 10; i++)
                 {
                     ennemyList.Add(new Ennemy(yPosStart, 5, ConsoleColor.Cyan));
                     yPosStart += 5;
                 }
+
                 if (winGame)
                 {
                     foreach (Ennemy enn in ennemyList)
                     {
-                        enn.Speed++;
+                        if (enn.Speed >= 3)
+                        {
+                            enn.Speed -= 1;
+                        }
                     }
                     winGame = false;
                 }
+                else
+                {
+                    foreach (Ennemy enn in ennemyList)
+                    {
+                        enn.Speed = 10;
+                    }
+                }
+
 
                 intTempEnemyNb = ennemyList.Count();
 
@@ -103,7 +122,7 @@ namespace SpicyConso
                         chrLanguage = 'e';
                         frenchMenu.changeLanguage = false;
                     }
-                    if (englishMenu.changeLanguage)
+                    else if (englishMenu.changeLanguage)
                     {
                         chrLanguage = 'f';
                         englishMenu.changeLanguage = false;
@@ -133,7 +152,6 @@ namespace SpicyConso
                         if (chrChoice == '2')
                         {
                             englishMenu.OptionMenu();
-
                         }
                         else if (chrChoice == '3')
                             break;
@@ -146,45 +164,22 @@ namespace SpicyConso
                 }
                 while (chrChoice != '1');
 
-                lobbySong.Stop();
-
-                FirstPartSong.PlayLooping();
+                PlayGround.firstPartSong.PlayLooping();
 
                 do
                 {
-                    Console.SetCursorPosition(0, 0);
-                    Console.WriteLine($"Score : {player.Score}");
 
-                    Console.SetCursorPosition(0, 1);
-                    if (chrLanguage == 'f' || chrLanguage == 'F')
-                        Console.WriteLine($"Munition : {player.CompteurAmmo}");
-                    else
-                        Console.WriteLine($"Ammo : {player.CompteurAmmo}");
+                    PlayGround.ShowPlayerScore(player);
+                    PlayGround.ShowAmmoCount(chrLanguage, player);
 
                     if (ennemyList.Count <= intTempEnemyNb / 2)
                     {
                         if (firstLoop)
                         {
-                            SecondPartSong.PlayLooping();
+                            PlayGround.secondPartSong.PlayLooping();
                             firstLoop = false;
                         }
                     }
-
-                    for (int i = ammoList.Count() - 1; i > 0; i--)
-                    {
-                        if (ammoList.ElementAt(i).YPos >= 2)
-                        {
-                            PlayGround.ShowAmmo(ammoList.ElementAt(i));
-                            ammoList.ElementAt(i).Update();
-                        }
-                        else
-                        {
-                            ammoList.Remove(ammoList.ElementAt(i));
-                            player.CompteurAmmo--;
-                        }
-                    }
-
-                    PlayGround.ShowPlayer(player);
 
                     if (Console.KeyAvailable)
                     {
@@ -196,7 +191,6 @@ namespace SpicyConso
                                 if (player.CompteurAmmo > 0)
                                 {
                                     ammoList.Add(new Ammo(player.XPos, player.YPos, ConsoleColor.Blue));
-                                    
                                 }
                                 break;
                             case ConsoleKey.D:
@@ -207,6 +201,28 @@ namespace SpicyConso
                                 break;
                         }
                     }
+
+                    if (ammoList.Count > 0)
+                    {
+                        for (int i = ammoList.Count() - 1; i >= 0; i--)
+                        {
+                            if (ammoList.ElementAt(i).YPos >= 2)
+                            {
+                                PlayGround.ShowAmmo(ammoList.ElementAt(i));
+                                if (frameNumber % ammoList.ElementAt(i).Speed == 0)
+                                {
+                                    ammoList.ElementAt(i).Update();
+                                }
+                            }
+                            else
+                            {
+                                ammoList.Remove(ammoList.ElementAt(i));
+                                player.CompteurAmmo--;
+                            }
+                        }
+                    }
+
+                    PlayGround.ShowPlayer(player);
 
                     foreach (Ennemy enneShow in ennemyList)
                     {
@@ -233,11 +249,16 @@ namespace SpicyConso
                     {
                         foreach (Ennemy enneUpdate in ennemyList)
                         {
-                            enneUpdate.UpdateEnnemyX();
+                            if (frameNumber % enneUpdate.Speed == 0)
+                            {
+                                enneUpdate.UpdateEnnemyX();
+                            }
                         }
                     }
 
-                    Thread.Sleep(50);
+
+                    frameNumber++;
+                    Thread.Sleep(3);
                     Console.Clear();
 
 
@@ -246,11 +267,11 @@ namespace SpicyConso
                         ammoList.First().KillsEnnemy(ennemyList, ammoList, player);
                     }
 
-
                     for (int i = 0; i < ennemyList.Count(); i++)
                     {
                         samePosition = CheckPosition(player, ennemyList);
                     }
+
 
                 }
                 while (!samePosition && ennemyList.Count() > 0 && player.CompteurAmmo > 0);
@@ -260,39 +281,37 @@ namespace SpicyConso
 
                 if (samePosition || player.CompteurAmmo <= 0)
                 {
-                    LooseSong.Play();
+                    PlayGround.looseSong.Play();
                     if (chrLanguage == 'e' || chrLanguage == 'E')
                     {
                         englishMenu.LoseMenu();
                     }
-                    else if (chrLanguage == 'f' || chrLanguage == 'f')
+                    else
                     {
                         frenchMenu.LoseMenu();
                     }
 
                     player.CompteurAmmo = 50;
                     player.Score = 0;
+
                 }
 
                 else
                 {
-                    WinSong.Play();
+                    PlayGround.winSong.Play();
+
                     if (chrLanguage == 'e' || chrLanguage == 'E')
                     {
                         englishMenu.WinMenu();
                     }
-                    else if (chrLanguage == 'f' || chrLanguage == 'f')
+                    else
                     {
                         frenchMenu.WinMenu();
                     }
                     winGame = true;       
                 }
 
-                player.XPos = 5;
-                yPosStart = 5;
-                ennemyList.Clear();
-                ammoList.Clear();
-                firstLoop = true;
+                ResetValue(player, ref yPosStart, ennemyList, ammoList, ref firstLoop);
 
                 Thread.Sleep(3000);
                 Console.ReadKey();
@@ -317,6 +336,15 @@ namespace SpicyConso
                 }
             }
             return false;
+        }
+
+        static void ResetValue(Player _player, ref int _yPosStart, List<Ennemy> _ennemyList, List<Ammo> _ammoList, ref bool _firstLoop)
+        {
+            _player.XPos = 5;
+            _yPosStart = 5;
+            _ennemyList.Clear();
+            _ammoList.Clear();
+            _firstLoop = true;
         }
     }
 }

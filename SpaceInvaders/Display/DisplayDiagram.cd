@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Display.PlayGround">
+    <Position X="10.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAIIAAABAAAMAACASAIAACKBAAAEAQACAAAIQAA=</HashCode>
+      <FileName>PlayGround.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.FrenchMenu">
+    <Position X="8.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAIQAAAAAAAAAAgAABAAAAADkBAAAAAEgABAAQ=</HashCode>
+      <FileName>FrenchMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.EnglishMenu">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIQAAAAAAAAAAAAABAAAAADkBAAAAAEgABAAQ=</HashCode>
+      <FileName>EnglishMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Display.Config">
+    <Position X="4.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Config.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

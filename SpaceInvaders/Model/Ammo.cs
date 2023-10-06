@@ -23,6 +23,13 @@ namespace Model
             set => _yPos = value;
         }
 
+        private int _speed = 5;
+        public int Speed
+        {
+            get => _speed;
+            set => _speed = value;
+        }
+
         public ConsoleColor _color;
 
         public Ammo(int xPos, int yPos, ConsoleColor color)

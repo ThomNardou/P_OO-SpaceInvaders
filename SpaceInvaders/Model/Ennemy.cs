@@ -24,7 +24,7 @@ namespace Model
             set => _yPos = value;
         }
 
-        private int _speed = 1;
+        private int _speed = 10;
         public int Speed
         {
             get => _speed;
@@ -51,11 +51,11 @@ namespace Model
         {
             if (_goingLeft)
             {
-                this._xPos-=_speed;
+                this._xPos-=2;
             }
             else
             {
-                this._xPos+=_speed;
+                this._xPos+=2;
             }
         }
 
