@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Storage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -62,6 +63,18 @@ namespace Model
             "    |_|\\___/ \\__,_|     \\/  \\/   |_|_| |_|\r\n",
             "                                          \r\n",
             "                                          "
+        };
+
+        private string[] tab_HighScoreTitle =
+        {
+            @"  _    _ _       _      _____                    ",
+            @" | |  | (_)     | |    / ____|                   ",
+            @" | |__| |_  __ _| |__ | (___   ___ ___  _ __ ___ ",
+            @" |  __  | |/ _` | '_ \ \___ \ / __/ _ \| '__/ _ \",
+            @" | |  | | | (_| | | | |____) | (_| (_) | | |  __/",
+            @" |_|  |_|_|\__, |_| |_|_____/ \___\___/|_|  \___|",
+            @"            __/ |                                ",
+            @"           |___/                                 "
         };
 
         public bool changeLanguage = false;
@@ -129,6 +142,28 @@ namespace Model
 
             Console.SetCursorPosition((Config.SCREEN_WIDTH - GO_BACK_LOBBY_MESSAGE.Length) / 2, 10);
             Console.WriteLine(GO_BACK_LOBBY_MESSAGE);
+        }
+
+        public void HighScore(Store storeage)
+        {
+
+            Console.Clear();
+
+            for (int i = 0; i < tab_HighScoreTitle.Length; i++)
+            {
+                Console.SetCursorPosition((Console.WindowWidth - tab_HighScoreTitle[i].Length) / 2, Console.CursorTop);
+                Console.WriteLine(tab_HighScoreTitle[i]);
+            }
+
+            storeage.SaveSelect();
+            for (int i = 0; i < storeage.Record.Count; ++i)
+            {
+                Console.SetCursorPosition(Console.WindowWidth / 2 - 10, 10 + i);
+                Console.WriteLine(storeage.Record.ElementAt(i));
+            }
+            storeage.ClosConnection();
+
+            Console.ReadKey();
         }
     }
 }

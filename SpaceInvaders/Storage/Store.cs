@@ -12,7 +12,7 @@ namespace Storage
 {
     public class Store
     {
-        public MySqlConnection Connection;
+        public MySqlConnection connection;
         private int compteur = 1;
         public int Compteur
         {
@@ -36,11 +36,11 @@ namespace Storage
             string port = "6033";
             string connectStr;
             connectStr = "SERVER=" + srv_addr + ";" + "DATABASE=" + dbname + ";" + "UID=" + uid + ";" + "PASSWORD=" + pass + ";" + "PORT=" + port + ";";
-            Connection = new MySqlConnection(connectStr);
+            connection = new MySqlConnection(connectStr);
 
             try
             {
-                Connection.Open();
+                connection.Open();
                 Debug.WriteLine("Connexion réussie !!!");
                 return true;
             }
@@ -53,14 +53,14 @@ namespace Storage
 
         public void ClosConnection()
         {
-            Connection.Close();
+            connection.Close();
         }
 
         public void SaveSelect()
         {
             OpenConnection();
             string sqlQuerySelect = "SELECT joupseudo, jouNombrePoints FROM t_joueur ORDER BY jouNombrePoints DESC LIMIT 5;";
-            MySqlCommand cmd = new MySqlCommand(sqlQuerySelect, Connection);
+            MySqlCommand cmd = new MySqlCommand(sqlQuerySelect, connection);
             MySqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
@@ -75,7 +75,7 @@ namespace Storage
         {
             string sqlQuerySelect = $"INSERT INTO t_joueur(joupseudo, jouNombrePoints) VALUES ('{player.Pseudo}', {player._score});";
             OpenConnection();
-            MySqlCommand cmd = new MySqlCommand(sqlQuerySelect, Connection);
+            MySqlCommand cmd = new MySqlCommand(sqlQuerySelect, connection);
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read()) { }
             ClosConnection();

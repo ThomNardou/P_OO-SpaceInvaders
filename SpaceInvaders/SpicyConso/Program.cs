@@ -67,10 +67,6 @@ namespace SpicyConso
             if (chrLanguage != 'f' || chrLanguage != 'F' || chrLanguage != 'e' || chrLanguage != 'E')
                 chrLanguage = 'f';
 
-            Debug.Write(pseudo);
-
-            Console.Clear();
-
             Player player = new Player(5, 5, ConsoleColor.DarkGreen, pseudo);
 
             Console.Clear();
@@ -155,7 +151,9 @@ namespace SpicyConso
                             englishMenu.OptionMenu();
                         }
                         else if (chrChoice == '3')
-                            break;
+                        {
+                            englishMenu.HighScore(store);
+                        }
                     }
 
                     if (chrChoice == '5')

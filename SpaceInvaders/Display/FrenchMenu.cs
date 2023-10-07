@@ -163,7 +163,7 @@ namespace Model
             }
             storeage.ClosConnection();
 
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }
