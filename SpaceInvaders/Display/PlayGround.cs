@@ -93,7 +93,7 @@ namespace Display
         {
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.SetCursorPosition(0, 0);
-            Console.WriteLine($"Score : {player.Score}");
+            Console.WriteLine($"Score : {player._score}");
         }
 
         static public char ChoseLanguage()

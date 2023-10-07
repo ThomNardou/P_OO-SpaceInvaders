@@ -93,7 +93,7 @@ namespace SpicyConso
                         {
                             enn.Speed -= 5;
                         }
-                        enn.IncrementX += 2;
+                        enn.incrementX += 2;
                     }
                     winGame = false;
                 }
@@ -292,8 +292,9 @@ namespace SpicyConso
                         frenchMenu.LoseMenu();
                     }
 
+                    store.InsertValue(player);
                     player.CompteurAmmo = 50;
-                    player.Score = 0;
+                    player._score = 0;
 
                 }
 

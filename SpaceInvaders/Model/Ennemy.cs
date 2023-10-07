@@ -24,6 +24,8 @@ namespace Model
             set => _yPos = value;
         }
 
+        public int incrementX = 2;
+
         private uint _speed = 10;
         public uint Speed
         {

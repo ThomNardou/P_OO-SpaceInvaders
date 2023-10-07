@@ -30,12 +30,7 @@ namespace Model
             set => _yPos = value;
         }
 
-        private int _score = 0;
-        public int Score
-        {
-            get => _score; 
-            set => _score = value;
-        }
+        public int _score = 0;
 
         private int compteurAmmo = 50;
         public int CompteurAmmo

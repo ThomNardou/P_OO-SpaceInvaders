@@ -20,7 +20,14 @@ namespace Storage
             set => compteur = value;
         }
 
-        public void Init()
+        private List<String> records = new List<String>();
+        public List<String> Record
+        {
+            get => records;
+            set => records = value;
+        }
+
+        public bool OpenConnection()
         {
             string srv_addr = "localhost";
             string dbname = "db_space_invaders";
@@ -30,10 +37,7 @@ namespace Storage
             string connectStr;
             connectStr = "SERVER=" + srv_addr + ";" + "DATABASE=" + dbname + ";" + "UID=" + uid + ";" + "PASSWORD=" + pass + ";" + "PORT=" + port + ";";
             Connection = new MySqlConnection(connectStr);
-        }
 
-        public bool OpenConnection()
-        {
             try
             {
                 Connection.Open();
@@ -52,18 +56,29 @@ namespace Storage
             Connection.Close();
         }
 
-        public void WriteSelect()
+        public void SaveSelect()
         {
+            OpenConnection();
             string sqlQuerySelect = "SELECT joupseudo, jouNombrePoints FROM t_joueur ORDER BY jouNombrePoints DESC LIMIT 5;";
             MySqlCommand cmd = new MySqlCommand(sqlQuerySelect, Connection);
             MySqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
             {
-                Console.WriteLine(compteur + "." + "\t" + Convert.ToString(reader["jouPseudo"]) + "\t" + Convert.ToString(reader["jouNombrePoints"]));
+                records.Add(compteur + "." + "\t" + Convert.ToString(reader["jouPseudo"]) + "\t" + Convert.ToString(reader["jouNombrePoints"]));
                 compteur++;
             }
             
+        }
+
+        public void InsertValue(Player player)
+        {
+            string sqlQuerySelect = $"INSERT INTO t_joueur(joupseudo, jouNombrePoints) VALUES ('{player.Pseudo}', {player._score});";
+            OpenConnection();
+            MySqlCommand cmd = new MySqlCommand(sqlQuerySelect, Connection);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read()) { }
+            ClosConnection();
         }
     }
 }

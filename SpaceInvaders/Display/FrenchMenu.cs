@@ -146,19 +146,23 @@ namespace Model
 
         public void HighScore(Store storeage)
         {
+
             Console.Clear();
+
             for (int i = 0; i < tab_HighScoreTitle.Length; i++)
             {
                 Console.SetCursorPosition((Console.WindowWidth - tab_HighScoreTitle[i].Length) / 2, Console.CursorTop);
-                Console.Write(tab_HighScoreTitle[i]);
+                Console.WriteLine(tab_HighScoreTitle[i]);
             }
 
-            Console.SetCursorPosition(0, storeage.Compteur + 20);
-
-            storeage.Init();
-            storeage.OpenConnection();
-            storeage.WriteSelect();
+            storeage.SaveSelect();
+            for (int i = 0; i < storeage.Record.Count; ++i)
+            {
+                Console.SetCursorPosition(Console.WindowWidth / 2 - 10, 10 + i);
+                Console.WriteLine(storeage.Record.ElementAt(i));
+            }
             storeage.ClosConnection();
+
             Console.ReadLine();
         }
     }
