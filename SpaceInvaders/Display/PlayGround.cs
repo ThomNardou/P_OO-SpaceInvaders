@@ -32,6 +32,7 @@ namespace Display
 
         static private char _chrLanguage;
         static private string _strPseudo;
+        static private string _playerAmmo;
 
         private const string CHOSE_DEFAULT_LANGUAGE = "Please select a language (Français/English) <f/e> : ";
         private const string CHOSE_PLAYER_NAME_FR = "Veuillez entrer votre pseudo : ";
@@ -83,10 +84,10 @@ namespace Display
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.SetCursorPosition(0, 1);
-            if (chrLanguage == 'f' || chrLanguage == 'F')
-                Console.WriteLine($"Munition : {player.CompteurAmmo}");
-            else
-                Console.WriteLine($"Ammo : {player.CompteurAmmo}");
+
+            _playerAmmo = chrLanguage == 'e' ? $"Ammo : {player.CompteurAmmo}" : $"Munition : {player.CompteurAmmo}";
+            Console.WriteLine(_playerAmmo);
+
         }
 
         static public void ShowPlayerScore(Player player)

@@ -40,12 +40,11 @@ namespace Model
         }
 
         public ConsoleColor color;
-        public Player(int x, int y, ConsoleColor color, string pseudo)
+        public Player(int x, int y, ConsoleColor color)
         {
             this._xPos = x;
             this._yPos = Config.SCREEN_HEIGHT - y;
             this.color = color;
-            _pseudo = pseudo;
         }
 
         public void UpdateXRight()

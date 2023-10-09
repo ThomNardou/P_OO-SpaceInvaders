@@ -27,19 +27,28 @@ namespace Storage
             set => records = value;
         }
 
+        /// <summary>
+        /// Fonction qui ovre la connexion à la DB
+        /// </summary>
+        /// <returns>true or false</returns>
         public bool OpenConnection()
         {
+            // Valeurs de connection de la base de donnée
             string srv_addr = "localhost";
             string dbname = "db_space_invaders";
             string uid = "root";
             string pass = "root";
             string port = "6033";
-            string connectStr;
-            connectStr = "SERVER=" + srv_addr + ";" + "DATABASE=" + dbname + ";" + "UID=" + uid + ";" + "PASSWORD=" + pass + ";" + "PORT=" + port + ";";
+
+            // Chaine de connexion permettant de de se connecter à la base de donnée
+            string connectStr = "SERVER=" + srv_addr + ";" + "DATABASE=" + dbname + ";" + "UID=" + uid + ";" + "PASSWORD=" + pass + ";" + "PORT=" + port + ";";
+
+            // attribue la chaine de connexion 
             connection = new MySqlConnection(connectStr);
 
             try
             {
+                // Ouvre la connection entre la base de donnée et le programme
                 connection.Open();
                 Debug.WriteLine("Connexion réussie !!!");
                 return true;
@@ -51,33 +60,51 @@ namespace Storage
             }
         }
 
+        /// <summary>
+        /// Ferme la connexion à la Db
+        /// </summary>
         public void ClosConnection()
         {
+            // Ferme la connexion
             connection.Close();
         }
 
+        /// <summary>
+        /// Enregistrer les resulatats du SELECT dans la liste
+        /// </summary>
         public void SaveSelect()
         {
+            // Ouvre la connexion
             OpenConnection();
+
+            // Requête SQL à executer
             string sqlQuerySelect = "SELECT joupseudo, jouNombrePoints FROM t_joueur ORDER BY jouNombrePoints DESC LIMIT 5;";
+            // permet d'effectuer des opérations sur la base de données
             MySqlCommand cmd = new MySqlCommand(sqlQuerySelect, connection);
+            // Éxecute la requête SQL
             MySqlDataReader reader = cmd.ExecuteReader();
 
+            // Boucle while qui s'execute tant que la requête SQL est cours d'execution
             while (reader.Read())
             {
-                records.Add(compteur + "." + "\t" + Convert.ToString(reader["jouPseudo"]) + "\t" + Convert.ToString(reader["jouNombrePoints"]));
+                // Enregistre le pseudo du joueur et son score dans une liste
+                records.Add(compteur + "." + "\t" + (string)reader["jouPseudo"] + "\t" + (string)reader["jouNombrePoints"]);
                 compteur++;
             }
             
         }
 
+        /// <summary>
+        /// va inserer le pseudo du joueur et son score dans la DB
+        /// </summary>
+        /// <param name="player"></param>
         public void InsertValue(Player player)
         {
             string sqlQuerySelect = $"INSERT INTO t_joueur(joupseudo, jouNombrePoints) VALUES ('{player.Pseudo}', {player._score});";
             OpenConnection();
             MySqlCommand cmd = new MySqlCommand(sqlQuerySelect, connection);
             MySqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read()) { }
+            reader.Read();
             ClosConnection();
         }
     }

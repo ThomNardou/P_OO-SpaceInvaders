@@ -28,12 +28,8 @@ namespace SpicyConso
                 "      |_|                                                               "
             };
 
-            
-
             char chrLanguage;
             char chrChoice;
-
-            string pseudo;
 
             int yPosStart = 5;
             int intTempEnemyNb;
@@ -53,21 +49,23 @@ namespace SpicyConso
             FrenchMenu frenchMenu = new FrenchMenu();
             EnglishMenu englishMenu = new EnglishMenu();
             Store store = new Store();
+            Player player = new Player(5, 5, ConsoleColor.DarkGreen);
 
             PlayGround.Init();
 
             chrLanguage = PlayGround.ChoseLanguage();
-            pseudo = PlayGround.ChosePlayerName(chrLanguage);
+            player.Pseudo = PlayGround.ChosePlayerName(chrLanguage);
 
-            if (string.IsNullOrEmpty(pseudo))
+            if (string.IsNullOrEmpty(player.Pseudo))
             {
-                pseudo = "player";
+                player.Pseudo = "Guest";
             }
+
+            Debug.WriteLine(player.Pseudo);
 
             if (chrLanguage != 'f' || chrLanguage != 'F' || chrLanguage != 'e' || chrLanguage != 'E')
                 chrLanguage = 'f';
 
-            Player player = new Player(5, 5, ConsoleColor.DarkGreen, pseudo);
 
             Console.Clear();
 
