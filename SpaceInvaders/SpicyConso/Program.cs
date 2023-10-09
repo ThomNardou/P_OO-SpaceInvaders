@@ -16,6 +16,8 @@ namespace SpicyConso
         static void Main(string[] args)
         {
 
+            
+
             string[] strTitle =
             {
                 "   _____                        _____                     _               \r\n",
@@ -46,9 +48,9 @@ namespace SpicyConso
             List<Ammo> ammoList = new List<Ammo>();
             List<Ennemy> ennemyList = new List<Ennemy>();
 
+            Store store = new Store();
             FrenchMenu frenchMenu = new FrenchMenu();
             EnglishMenu englishMenu = new EnglishMenu();
-            Store store = new Store();
             Player player = new Player(5, 5, ConsoleColor.DarkGreen);
 
             PlayGround.Init();
@@ -60,8 +62,6 @@ namespace SpicyConso
             {
                 player.Pseudo = "Guest";
             }
-
-            Debug.WriteLine(player.Pseudo);
 
             if (chrLanguage != 'f' || chrLanguage != 'F' || chrLanguage != 'e' || chrLanguage != 'E')
                 chrLanguage = 'f';
@@ -310,12 +310,15 @@ namespace SpicyConso
                     winGame = true;       
                 }
 
+                
+
                 ResetValue(player, ref yPosStart, ennemyList, ammoList, ref firstLoop);
 
                 Thread.Sleep(3000);
                 Console.ReadKey();
                 Console.Clear();
-                
+
+
             }
             while (true);
         }
