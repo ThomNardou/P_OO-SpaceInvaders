@@ -93,9 +93,8 @@ namespace SpicyConso
                         // augmente la vitesse de enemmies 
                         if (enn.Speed >= 0)
                         {
-                            enn.Speed -= 5;
+                            enn.Speed -= 1;
                         }
-                        enn.incrementX += 2;
                     }
                     winGame = false;
                 }

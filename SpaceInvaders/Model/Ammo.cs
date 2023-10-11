@@ -71,7 +71,6 @@ namespace Model
                     if (ennemyList[i].YPos >= ammoOnplayList[j]._yPos && ennemyList[i].YPos <= ammoOnplayList[j]._yPos + 1 && ammoOnplayList[j]._xPos >= ennemyList[i].XPos && ammoOnplayList[j]._xPos <= ennemyList[i].XPos + 4)
                     {
                         ennemyList.Remove(ennemyList[i]);
-                        ammoOnplayList.Remove(ammoOnplayList[j]);
                         player.AddPoint();
                         for (int x = 0; x < 2; x++)
                         {
