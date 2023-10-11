@@ -36,7 +36,6 @@ C:\Users\pk88yte\Documents\GitHub\P_OO-SpaceInvaders\SpaceInvaders\Model\obj\Deb
 E:\GitHub\P_OO-SpaceInvaders\SpaceInvaders\Model\bin\Debug\net6.0\Model.deps.json
 E:\GitHub\P_OO-SpaceInvaders\SpaceInvaders\Model\bin\Debug\net6.0\Model.dll
 E:\GitHub\P_OO-SpaceInvaders\SpaceInvaders\Model\bin\Debug\net6.0\Model.pdb
-E:\GitHub\P_OO-SpaceInvaders\SpaceInvaders\Model\obj\Debug\net6.0\Model.csproj.AssemblyReference.cache
 E:\GitHub\P_OO-SpaceInvaders\SpaceInvaders\Model\obj\Debug\net6.0\Model.GeneratedMSBuildEditorConfig.editorconfig
 E:\GitHub\P_OO-SpaceInvaders\SpaceInvaders\Model\obj\Debug\net6.0\Model.AssemblyInfoInputs.cache
 E:\GitHub\P_OO-SpaceInvaders\SpaceInvaders\Model\obj\Debug\net6.0\Model.AssemblyInfo.cs

@@ -84,7 +84,7 @@ namespace Model
         /// </summary>
         public void AddPoint()
         {
-            _score += 1000;
+            _score += 10;
         }
 
 
