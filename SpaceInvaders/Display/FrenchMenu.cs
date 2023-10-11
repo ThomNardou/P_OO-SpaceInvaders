@@ -175,6 +175,8 @@ namespace Model
                 Console.WriteLine(storeage.Record.ElementAt(i));
             }
             storeage.ClosConnection();
+            storeage.Record.Clear();
+            storeage.Compteur = 0;
 
             Console.ReadKey();
         }

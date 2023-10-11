@@ -89,7 +89,7 @@ namespace Storage
             while (reader.Read())
             {
                 // Enregistre le pseudo du joueur et son score dans une liste
-                records.Add(compteur + "." + "\t" + (string)reader["jouPseudo"] + "\t" + (string)reader["jouNombrePoints"]);
+                records.Add(compteur + "." + "\t" + Convert.ToString(reader["jouPseudo"]) + "\t" + Convert.ToString(reader["jouNombrePoints"]));
                 compteur++;
             }
             
