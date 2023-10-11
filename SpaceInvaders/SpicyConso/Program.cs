@@ -167,7 +167,8 @@ namespace SpicyConso
                             englishMenu.OptionMenu();
                         }
                         else if (chrChoice == '3')
-                        {// affiche la page des records en anglais 
+                        {
+                            // affiche la page des records en anglais 
                             englishMenu.HighScore(store);
                         }
                     }
