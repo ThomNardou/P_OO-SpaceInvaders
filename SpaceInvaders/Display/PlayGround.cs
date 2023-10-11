@@ -10,34 +10,39 @@ namespace Display
 {
     public class PlayGround
     {
+        // Déclaration des assets
         static private string[] _player =
         {
             " | ",
             "/@\\"
         };
-
         static private string[] view =
         {
             " O ",
             " | "
         };
-
         static private string[] _enemy = { "{@v@}", "/\" \"\\" };
 
+        // Déclaration des musiques
         static public SoundPlayer lobbySong = new SoundPlayer(@"LobbySong.wav");
         static public SoundPlayer firstPartSong = new SoundPlayer(@"FirstPartFight.wav");
         static public SoundPlayer secondPartSong = new SoundPlayer(@"SecondPartFight.wav");
         static public SoundPlayer winSong = new SoundPlayer(@"WinSong.wav");
         static public SoundPlayer looseSong = new SoundPlayer(@"LooseSong.wav");
 
+        // Déclaration des attribut
         static private char _chrLanguage;
-        static private string _strPseudo;
+        static private string _strPseudo = "";
         static private string _playerAmmo;
 
+        // Déclaration des constantes 
         private const string CHOSE_DEFAULT_LANGUAGE = "Please select a language (Français/English) <f/e> : ";
         private const string CHOSE_PLAYER_NAME_FR = "Veuillez entrer votre pseudo : ";
         private const string CHOSE_PLAYER_NAME_EN = "Please enter your username : ";
 
+        /// <summary>
+        /// Initialiser d'espace jeu
+        /// </summary>
         public static void Init()
         {
             Console.SetWindowSize(Config.SCREEN_WIDTH, Config.SCREEN_HEIGHT);
@@ -47,6 +52,10 @@ namespace Display
             Console.Title = "SpaceInvaders.exe";
         }
 
+        /// <summary>
+        /// Afficher le joueur 
+        /// </summary>
+        /// <param name="player"></param>
         static public void ShowPlayer(Player player)
         {
             Console.ForegroundColor = player.color;
@@ -58,6 +67,10 @@ namespace Display
             }
         }
 
+        /// <summary>
+        /// Afficher les enemmies 
+        /// </summary>
+        /// <param name="ennemy"></param>
         static public void ShowEnnemy(Ennemy ennemy)
         {
             Console.ForegroundColor = ennemy._color;
@@ -69,6 +82,10 @@ namespace Display
             }
         }
 
+        /// <summary>
+        /// Afficher les munitions
+        /// </summary>
+        /// <param name="ammo"></param>
         static public void ShowAmmo(Ammo ammo)
         {
             Console.ForegroundColor = ammo._color;
@@ -80,6 +97,11 @@ namespace Display
             }
         }
 
+        /// <summary>
+        /// Va afficher le nombre de munition
+        /// </summary>
+        /// <param name="chrLanguage"></param>
+        /// <param name="player"></param>
         static public void ShowAmmoCount(char chrLanguage, Player player)
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -90,6 +112,10 @@ namespace Display
 
         }
 
+        /// <summary>
+        /// Va afficher le Score du joueur 
+        /// </summary>
+        /// <param name="player"></param>
         static public void ShowPlayerScore(Player player)
         {
             Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -97,7 +123,11 @@ namespace Display
             Console.WriteLine($"Score : {player._score}");
         }
 
-        static public char ChoseLanguage()
+        /// <summary>
+        /// Va demander la langue par défaut 
+        /// </summary>
+        /// <returns>un char qui prend comme veleur la première lettre de la langue</returns>
+        static public char ChoseDefaultLanguage()
         {
             Console.SetCursorPosition((Config.SCREEN_WIDTH - CHOSE_DEFAULT_LANGUAGE.Length) / 2, Config.SCREEN_HEIGHT / 2 - 1);
             Console.Write(CHOSE_DEFAULT_LANGUAGE);
@@ -106,6 +136,11 @@ namespace Display
             return _chrLanguage;
         }
 
+        /// <summary>
+        /// Va demander le pseudo du joueur 
+        /// </summary>
+        /// <param name="chrLanguage"></param>
+        /// <returns>un string qui va prendre la valeur du pseudo du joueur</returns>
         static public string ChosePlayerName(char chrLanguage)
         {
             if (chrLanguage == 'f' || chrLanguage == 'F')

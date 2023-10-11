@@ -12,6 +12,7 @@ namespace Storage
 {
     public class Store
     {
+        // Déclaration des attributs
         public MySqlConnection connection;
         private int compteur = 1;
         public int Compteur
@@ -61,7 +62,7 @@ namespace Storage
         }
 
         /// <summary>
-        /// Ferme la connexion à la Db
+        /// Ferme la connexion à la DB
         /// </summary>
         public void ClosConnection()
         {

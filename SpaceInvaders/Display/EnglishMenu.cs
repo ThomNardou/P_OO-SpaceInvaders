@@ -10,8 +10,8 @@ namespace Model
     public class EnglishMenu
     {
 
-        private const string GO_BACK_LOBBY_MESSAGE = "Press a key to return to the main menu :";
 
+        // Déclaration des Titre
         private string[] optionChoseLobby =
         {
             "1. Start",
@@ -20,7 +20,6 @@ namespace Model
             "4. lockerrom",
             "5. Leave"
         };
-
         private string[] optionChose =
         {
              "Edit the language :",
@@ -28,7 +27,6 @@ namespace Model
              "\t2. English",
              "\t3. back",
         };
-
         private string[] tab_optionTitle =
         {
             "   ____        _   _             \r\n",
@@ -40,7 +38,6 @@ namespace Model
             "        | |                      \r\n",
             "      |_|                      "
         };
-
         private string[] tab_LostTitle =
         {
             " __     __           _                    \r\n",
@@ -52,7 +49,6 @@ namespace Model
             "                                          \r\n",
             "                                          "
         };
-
         private string[] tab_WinTitle =
         {
             " __     __          __          ___       \r\n",
@@ -64,7 +60,6 @@ namespace Model
             "                                          \r\n",
             "                                          "
         };
-
         private string[] tab_HighScoreTitle =
         {
             @"  _    _ _       _      _____                    ",
@@ -77,9 +72,16 @@ namespace Model
             @"           |___/                                 "
         };
 
+        // Déclaration des constantes 
+        private const string GO_BACK_LOBBY_MESSAGE = "Press a key to return to the main menu :";
+
+        // Déclaration des attributs
         public bool changeLanguage = false;
         private char chrLanguage;
 
+        /// <summary>
+        /// Afficher le menu principal 
+        /// </summary>
         public void ShowMenu()
         {
             for (int i = 0; i < optionChoseLobby.Length; i++)
@@ -89,6 +91,9 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// Afficher la page des options 
+        /// </summary>
         public void OptionMenu()
         {
             Console.Clear();
@@ -118,6 +123,9 @@ namespace Model
                 changeLanguage = true;
         }
 
+        /// <summary>
+        /// Affiche la page de défaite
+        /// </summary>
         public void LoseMenu()
         {
             Console.Clear();
@@ -131,6 +139,9 @@ namespace Model
             Console.WriteLine(GO_BACK_LOBBY_MESSAGE);
         }
 
+        /// <summary>
+        /// Affiche la page de victoire
+        /// </summary>
         public void WinMenu()
         {
             Console.Clear();
@@ -144,6 +155,10 @@ namespace Model
             Console.WriteLine(GO_BACK_LOBBY_MESSAGE);
         }
 
+        /// <summary>
+        /// Affiche la page des records
+        /// </summary>
+        /// <param name="storeage"></param>
         public void HighScore(Store storeage)
         {
 
