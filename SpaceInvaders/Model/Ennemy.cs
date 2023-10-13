@@ -16,7 +16,6 @@ namespace Model
 
         private int _xPos;
         private int _yPos;
-        public int incrementX = 2;
         private int _speed = 10;
 
         // Déclaration des propriétés 

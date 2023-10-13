@@ -48,40 +48,9 @@ namespace Model
         /// <summary>
         /// Change la valeur de Y pour faire monter la munition
         /// </summary>
-        public void Update()
+        public void UpdateAmmoY()
         {
             _yPos -= 2;
-        }
-
-        /// <summary>
-        /// regarde si une munition touche un enemmie
-        /// </summary>
-        /// <param name="ennemyList"></param>
-        /// <param name="ammoOnplayList"></param>
-        /// <param name="player"></param>
-        public void KillsEnnemy(List<Ennemy> ennemyList, List<Ammo> ammoOnplayList, List<Ammo> ammoOffPlayerList ,Player player)
-        {
-
-            // pass en revue tout les enemmies
-            for (int i = 0; i < ennemyList.Count(); i++)
-            {
-                // passe en revue toute les munition tiré
-                for (int j = 0; j < ammoOnplayList.Count(); j++)
-                {
-                    if (ennemyList[i].YPos >= ammoOnplayList[j]._yPos && ennemyList[i].YPos <= ammoOnplayList[j]._yPos + 1 && ammoOnplayList[j]._xPos >= ennemyList[i].XPos && ammoOnplayList[j]._xPos <= ennemyList[i].XPos + 4)
-                    {
-                        ennemyList.Remove(ennemyList[i]);
-                        player.AddPoint();
-                        for (int x = 0; x < 2; x++)
-                        {
-                            ammoOffPlayerList.Add(new Ammo(player.XPos, player.YPos, ConsoleColor.DarkBlue));
-                            player.CompteurAmmo++;
-                        }
-                        break;
-                    }
-                }
-
-            }
         }
     }
 }

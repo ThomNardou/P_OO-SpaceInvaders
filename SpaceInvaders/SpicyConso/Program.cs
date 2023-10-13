@@ -104,7 +104,6 @@ namespace SpicyConso
                     {
                         // Réinitialise la vitesse des enemmies
                         enn.Speed = 10;
-                        enn.incrementX = 2;
                     }
                 }
 
@@ -250,7 +249,7 @@ namespace SpicyConso
                             // gère la vitesse des munition par rapport au nombre de frame
                             if (frameNumber % ammoListOnPlay.ElementAt(i).Speed == 0)
                             {
-                                ammoListOnPlay.ElementAt(i).Update();
+                                ammoListOnPlay.ElementAt(i).UpdateAmmoY();
                             }
                         }
                         else
@@ -311,7 +310,26 @@ namespace SpicyConso
                     // check si une munition touche un enemmie
                     if (ammoListOnPlay.Count() > 0 && ennemyList.Count() > 0)
                     {
-                        ammoListOnPlay.First().KillsEnnemy(ennemyList, ammoListOnPlay, ammoListOffPlay, player);
+                        // pass en revue tout les enemmies
+                        for (int i = 0; i < ennemyList.Count(); i++)
+                        {
+                            // passe en revue toute les munition tiré
+                            for (int j = 0; j < ammoListOnPlay.Count(); j++)
+                            {
+                                if (ennemyList[i].YPos >= ammoListOnPlay[j].YPos && ennemyList[i].YPos <= ammoListOnPlay[j].YPos + 1 && ammoListOnPlay[j].XPos >= ennemyList[i].XPos && ammoListOnPlay[j].XPos <= ennemyList[i].XPos + 4)
+                                {
+                                    ennemyList.Remove(ennemyList[i]);
+                                    player.AddPoint();
+                                    for (int x = 0; x < 2; x++)
+                                    {
+                                        ammoListOffPlay.Add(new Ammo(player.XPos, player.YPos, ConsoleColor.DarkBlue));
+                                        player.CompteurAmmo++;
+                                    }
+                                    break;
+                                }
+                            }
+
+                        }
                     }
 
                     // check si les enemmies sont à la même position que le joueur sur l'axe Y
