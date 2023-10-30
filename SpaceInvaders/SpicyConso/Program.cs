@@ -71,7 +71,7 @@ namespace SpicyConso
             do
             {
                 // Joue la musique de fond
-                PlayGround.lobbySong.PlayLooping();
+                //PlayGround.lobbySong.PlayLooping();
 
                 // Boucle qui va instancier les 10 enemies 
                 for (int i = 0; i < 10; i++)
@@ -180,7 +180,7 @@ namespace SpicyConso
                 while (chrChoice != '1');
 
                 // Joue la musique de fond pour la première partie du jeu
-                PlayGround.firstPartSong.PlayLooping();
+                //PlayGround.firstPartSong.PlayLooping();
 
                 ///////////////////////////////////////////////////////// MOTEUR DE JEU /////////////////////////////////////////////////////////
                 do
@@ -319,6 +319,8 @@ namespace SpicyConso
                                 if (ennemyList[i].YPos >= ammoListOnPlay[j].YPos && ennemyList[i].YPos <= ammoListOnPlay[j].YPos + 1 && ammoListOnPlay[j].XPos >= ennemyList[i].XPos && ammoListOnPlay[j].XPos <= ennemyList[i].XPos + 4)
                                 {
                                     ennemyList.Remove(ennemyList[i]);
+                                    ammoListOnPlay.RemoveAt(0);
+
                                     player.AddPoint();
                                     for (int x = 0; x < 2; x++)
                                     {
