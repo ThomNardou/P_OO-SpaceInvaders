@@ -35,11 +35,11 @@ namespace Storage
         public bool OpenConnection()
         {
             // Valeurs de connection de la base de donnée
-            string srv_addr = "localhost";
-            string dbname = "db_space_invaders";
-            string uid = "root";
-            string pass = "root";
-            string port = "6033";
+            string srv_addr = "localhost";                          // Adresse du  serveur 
+            string dbname = "db_space_invaders";                    // nom de la base de donnée
+            string uid = "root";                                    // Utilisateur
+            string pass = "root";                                   // Mot de passe
+            string port = "6033";                                   // Port 
 
             // Chaine de connexion permettant de de se connecter à la base de donnée
             string connectStr = "SERVER=" + srv_addr + ";" + "DATABASE=" + dbname + ";" + "UID=" + uid + ";" + "PASSWORD=" + pass + ";" + "PORT=" + port + ";";
