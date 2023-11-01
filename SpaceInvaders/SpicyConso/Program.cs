@@ -36,6 +36,7 @@ namespace SpicyConso
             int xPosStart = 5;
             int intTempEnemyNb;
             int frameNumber = 0;
+            int speed = 10;
 
             bool firstLoop = true;
             bool samePosition = false;
@@ -86,26 +87,18 @@ namespace SpicyConso
                     ammoListOffPlay.Add(new Ammo(player.XPos, player.YPos, ConsoleColor.Blue));
                 }
 
-                if (winGame)
+                if (winGame && speed > 0)
                 {
-                    foreach (Ennemy enn in ennemyList)
-                    {
-                        // augmente la vitesse de enemmies 
-                        if (enn.Speed >= 0)
-                        {
-                            enn.Speed -= 1;
-                        }
-                    }
+                    speed -= 1;
+
                     winGame = false;
                 }
                 else
                 {
-                    foreach (Ennemy enn in ennemyList)
-                    {
-                        // Réinitialise la vitesse des enemmies
-                        enn.Speed = 10;
-                    }
+                    speed = 10;
                 }
+
+                Console.Title = Convert.ToString(speed);
 
                 // Variable temporaire qui prend le nombre d'enemmies 
                 intTempEnemyNb = ennemyList.Count();
@@ -293,7 +286,7 @@ namespace SpicyConso
                         foreach (Ennemy enneUpdate in ennemyList)
                         {
                             //  Gère la vitesse des enemmies 
-                            if (frameNumber % enneUpdate.Speed == 0)
+                            if (frameNumber % speed == 0)
                             {
                                 enneUpdate.UpdateEnnemyX();
                             }
