@@ -72,7 +72,7 @@ namespace SpicyConso
             do
             {
                 // Joue la musique de fond
-                //PlayGround.lobbySong.PlayLooping();
+                PlayGround.lobbySong.PlayLooping();
 
                 // Boucle qui va instancier les 10 enemies 
                 for (int i = 0; i < 10; i++)
@@ -173,7 +173,7 @@ namespace SpicyConso
                 while (chrChoice != '1');
 
                 // Joue la musique de fond pour la première partie du jeu
-                //PlayGround.firstPartSong.PlayLooping();
+                PlayGround.firstPartSong.PlayLooping();
 
                 ///////////////////////////////////////////////////////// MOTEUR DE JEU /////////////////////////////////////////////////////////
                 do
@@ -190,7 +190,7 @@ namespace SpicyConso
                         if (firstLoop)
                         {
                             // Joue la musique pour la seconde partie du jeu
-                            //PlayGround.secondPartSong.PlayLooping();
+                            PlayGround.secondPartSong.PlayLooping();
                             firstLoop = false;
                         }
                     }
@@ -347,7 +347,7 @@ namespace SpicyConso
                 if (samePosition || player.CompteurAmmo <= 0)
                 {
                     // joue la musique de fond si le joueur à perdu la partie
-                    //PlayGround.looseSong.Play();
+                    PlayGround.looseSong.Play();
 
                     // Regarde la langue choisie par l'utilisateur
                     if (chrLanguage == 'e' || chrLanguage == 'E')
@@ -373,7 +373,7 @@ namespace SpicyConso
                 else
                 {
                     // joue la musique de victoire
-                    //PlayGround.winSong.Play();
+                    PlayGround.winSong.Play();
 
                     // regarde la langue du joueur
                     if (chrLanguage == 'e' || chrLanguage == 'E')
