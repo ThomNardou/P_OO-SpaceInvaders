@@ -23,12 +23,14 @@ namespace Display
         };
         static private string[] _enemy = { "{@v@}", "/\" \"\\" };
 
+        const string FIRST_PART = @"..\..\..\..\SpicyConso\Musique\";
+
         // Déclaration des musiques
-        static public SoundPlayer lobbySong = new SoundPlayer(@"LobbySong.wav");
-        static public SoundPlayer firstPartSong = new SoundPlayer(@"FirstPartFight.wav");
-        static public SoundPlayer secondPartSong = new SoundPlayer(@"SecondPartFight.wav");
-        static public SoundPlayer winSong = new SoundPlayer(@"WinSong.wav");
-        static public SoundPlayer looseSong = new SoundPlayer(@"LooseSong.wav");
+        static public SoundPlayer lobbySong = new SoundPlayer($"{FIRST_PART}LobbySong.wav");
+        static public SoundPlayer firstPartSong = new SoundPlayer($"{FIRST_PART}FirstPartFight.wav");
+        static public SoundPlayer secondPartSong = new SoundPlayer($"{FIRST_PART}SecondPartFight.wav");
+        static public SoundPlayer winSong = new SoundPlayer($"{FIRST_PART}WinSong.wav");
+        static public SoundPlayer looseSong = new SoundPlayer($"{FIRST_PART}LooseSong.wav");
 
         // Déclaration des attribut
         static private char _chrLanguage;
