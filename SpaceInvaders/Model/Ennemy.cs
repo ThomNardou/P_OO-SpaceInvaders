@@ -48,7 +48,7 @@ namespace Model
         }
 
         /// <summary>
-        /// Change la valeur X de l'en emmie pour le déplacer
+        /// Change la valeur X de l'enemmie pour le déplacer
         /// </summary>
         public void UpdateEnnemyX()
         {
@@ -56,7 +56,7 @@ namespace Model
             if (_goingLeft)
             {
                 // déplace l'enemmie sur la gauche
-                this._xPos-=2;
+                this._xPos-=12;
             }
             else
             {
