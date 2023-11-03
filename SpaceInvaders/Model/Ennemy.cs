@@ -48,7 +48,7 @@ namespace Model
         }
 
         /// <summary>
-        /// Change la valeur X de l'enemmie pour le déplacer
+        /// Change la valeur X de l'en emmie pour le déplacer
         /// </summary>
         public void UpdateEnnemyX()
         {
