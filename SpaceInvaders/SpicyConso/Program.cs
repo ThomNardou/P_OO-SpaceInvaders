@@ -208,7 +208,7 @@ namespace SpicyConso
                                 if (player.CompteurAmmo > 0)
                                 {
                                     if (ammoListOffPlay.Count > 0)
-                                        ammoListOnPlay.Add(new Ammo(player.XPos, player.YPos, ConsoleColor.DarkBlue));
+                                        ammoListOnPlay.Add(new Ammo(player.XPos, player.YPos, ConsoleColor.Magenta));
 
                                     ammoListOffPlay.RemoveAt(0);
 
@@ -297,7 +297,7 @@ namespace SpicyConso
                     // agmente le nombre de frame
                     frameNumber++;
 
-                    Thread.Sleep(1);
+                    Thread.Sleep(3);
                     Console.Clear();
 
 

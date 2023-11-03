@@ -11,7 +11,7 @@ namespace Model
         // déclaration des attributs
         private int _xPos;
         private int _yPos;
-        private int _speed = 5;
+        private int _speed = 1;
 
         public ConsoleColor _color;
 
