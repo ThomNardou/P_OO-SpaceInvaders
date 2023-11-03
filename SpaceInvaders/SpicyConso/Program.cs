@@ -88,9 +88,10 @@ namespace SpicyConso
                 }
 
                 // augmente la vitesse des ennemies
-                if (winGame && speed > 0)
+                if (winGame)
                 {
-                    speed -= 1;
+                    if(speed > 1)
+                        speed -= 1;
 
                     winGame = false;
                 }
