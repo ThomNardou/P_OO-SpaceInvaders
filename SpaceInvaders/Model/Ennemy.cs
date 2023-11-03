@@ -56,12 +56,12 @@ namespace Model
             if (_goingLeft)
             {
                 // déplace l'enemmie sur la gauche
-                this._xPos-=12;
+                this._xPos -= 2;
             }
             else
             {
                 // Déplace l'enemmie sur la droite
-                this._xPos+=2;
+                this._xPos += 2;
             }
         }
 
